@@ -469,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b7c4b5ff2b71b4f84c24aeefe22f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseAnimTime: 10
 --- !u!50 &1673678140
 Rigidbody2D:
   serializedVersion: 4
@@ -545,5 +546,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9100801193844154983, guid: 0873a16ccabf8be449715df3017d79e1, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 3831732259802744252, guid: 8e88d8544e4954d47acae2963216255d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0873a16ccabf8be449715df3017d79e1, type: 3}

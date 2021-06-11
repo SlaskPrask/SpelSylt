@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity_Controller : MonoBehaviour
+public abstract class Entity_Controller : MonoBehaviour
 {
     protected Vector2 move;
+    protected Vector2 shoot;
     protected Rigidbody2D body;
     protected new SpriteRenderer renderer;
 
@@ -21,4 +22,6 @@ public class Entity_Controller : MonoBehaviour
 
     protected virtual void AwakeInit() { }
     protected virtual void StartInit() { }
+
+    protected virtual void Shoot() { }
 }

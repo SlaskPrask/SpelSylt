@@ -24,6 +24,27 @@ public class Player_Controller : Entity_Controller
         body.velocity = Vector2.ClampMagnitude(body.velocity, SerializedData.GetStat(PlayerStats.MAX_SPEED));
     }
 
+    private void Update()
+    {
+        HandleShots();
+    }
+
+    private void HandleShots()
+    {
+        if (shoot.magnitude > .1f)
+        {
+            List<Power_Shot> shots = SerializedData.GetShots();
+            for (int i = 0; i < shots.Count; i++)
+            {
+                shots[i].Shoot(gameObject, shoot);
+            }
+        }
+    }
+
+    protected override void Shoot()
+    {
+
+    }
 
     private void CalculateAnimationTime(float mag)
     {
@@ -35,6 +56,11 @@ public class Player_Controller : Entity_Controller
         {
             animationTime = (animationTime + Time.deltaTime * baseAnimTime * mag) % (Mathf.PI * 2);
         }
+    }
+
+    private void OnShoot(InputValue val)
+    {
+        shoot = val.Get<Vector2>();
     }
 
     private void LateUpdate()
