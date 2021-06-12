@@ -16,5 +16,5 @@ MonoBehaviour:
   dropTable:
   - powerUp: {fileID: 0}
     dropChance: 95
-  - powerUp: {fileID: 11400000, guid: db6365933d21bf5448f14e99a851989e, type: 2}
+  - powerUp: {fileID: 11400000, guid: 58000d1fecbfd3147a455faf594ed9a7, type: 2}
     dropChance: 5

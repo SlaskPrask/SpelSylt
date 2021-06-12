@@ -11,16 +11,18 @@ public class AbsorbText : MonoBehaviour
     private RectTransform transform;
     private float textSpeed = 0.2f;
     private float fadeTime = 2.0f;
+    private int timer;
     // Start is called before the first frame update
     void Start()
     {
         text.fontMaterial.color = Color.white;
+        timer = 180;
         transform = gameObject.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(player.transform.position.x, player.transform.position.y - 10);
+        transform.anchoredPosition = new Vector2(player.transform.position.x, player.transform.position.y + 60);
         //SetText(GetText());
         //text.SetText(currentString);
         
-        text.SetText("Explosive bullet acquired!");
+        text.SetText("EXPLOSIVE BULLET");
         StartCoroutine(FadeCoroutine());
     }
 
@@ -28,8 +30,10 @@ public class AbsorbText : MonoBehaviour
     void Update()
     {
         transform.anchoredPosition = new Vector2(transform.anchoredPosition.x, transform.anchoredPosition.y + textSpeed);
-        if (text.fontMaterial.color == Color.clear)
+        timer--;
+        if (timer <= 0)
         {
+            StopAllCoroutines();
             gameObject.SetActive(false);
         }
     }

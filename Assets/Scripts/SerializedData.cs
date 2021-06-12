@@ -18,12 +18,12 @@ public static class SerializedData
         {
             data = new float[]
             {
-                3f, //Max Speed
+                50f, //Max Speed
                 10f, //Max HP
-                1f, //Size
+                3f, //Size
                 1f, //Fire rate
                 1f, //Absorbtion cooldown
-                25f, //Acceleration
+                70f, //Acceleration
                 10f, //Deceleration
             },
             baseShot = Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>(),
