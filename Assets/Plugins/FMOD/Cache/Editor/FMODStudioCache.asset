@@ -32,13 +32,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Audio/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637590004774559928
+  lastModified: 637590170231671763
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 688
   Exists: 1
---- !u!114 &-4671140952506346640
+--- !u!114 &-1177625605834768591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Audio/Desktop/Master.bank
   SubDir: 
-  lastModified: 637590004736613541
+  lastModified: 637590170223634049
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -70,12 +70,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -5325666385159085571}
-  - {fileID: -4671140952506346640}
+  - {fileID: -1177625605834768591}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4671140952506346640}
+  - {fileID: -1177625605834768591}
   StringsBanks:
   - {fileID: -5325666385159085571}
-  stringsBankWriteTime: 637590004774559928
+  stringsBankWriteTime: 637590170231671763
   cacheVersion: 3

@@ -25,8 +25,18 @@ public static class SerializedData
                 1f, //Absorbtion cooldown
                 25f, //Acceleration
                 10f, //Deceleration
+            },
+            shots = new List<Power_Shot>()
+            {
+                Resources.Load<Power_Shot>("Base Shot")
             }
+            
         };
+    }
+
+    public static List<Power_Shot> GetShots()
+    {
+        return activeData.shots;
     }
 
     public static void UpdateStat(PlayerStats stat, float value)
@@ -43,6 +53,7 @@ public static class SerializedData
     public struct PlayerData
     {
         public float[] data;
+        public List<Power_Shot> shots;
     }
 }
 
