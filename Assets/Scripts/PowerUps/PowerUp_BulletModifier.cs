@@ -14,6 +14,9 @@ public class PowerUp_BulletModifier : PowerUp
         speedMultiplier = 1f,
         
         rateAdder = 0f,
-        rateMultiplier = 1f
+        rateMultiplier = 1f,
+
+        damageAdder = 0f,
+        damageMultiplier = 1f,
     };
 }

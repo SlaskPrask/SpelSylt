@@ -18,8 +18,8 @@ TagManager:
   - EnemyBullet
   - Enemy
   - Damage
-  - 
-  - 
+  - PlayerTrigger
+  - Walk
   - 
   - 
   - 
