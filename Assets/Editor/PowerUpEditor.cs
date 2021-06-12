@@ -27,6 +27,9 @@ public class PowerUpEditor : Editor
             case PowerUpType.SHOT_MODIFIER:
                 power.managedReferenceValue = new PowerUp_BulletModifier();
                 break;
+            case PowerUpType.SHOT_IMPACT_BEHAVIOUR:
+                power.managedReferenceValue = new PowerUp_BulletImpact();
+                break;
             case PowerUpType.STAT_MODIFIER:
                 break;
             case PowerUpType.ELEMENTAL_TYPING:

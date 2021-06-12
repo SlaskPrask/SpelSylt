@@ -19,15 +19,15 @@ public class PowerUp_ExtraShot : PowerUp
             return;
 
         ShotModifiers mods;
-        string tag;
+        int layer;
         if (shooter.gameObject.layer == 6)
         {
-            tag = "Player";
             mods = SerializedData.GetShotModifiers();
+            layer = 7;
         }
         else
         {
-            tag = "Enemy";
+            layer = 9;
             mods = new ShotModifiers
             {
                 sizeAdder = 0,
@@ -51,7 +51,7 @@ public class PowerUp_ExtraShot : PowerUp
                 Bullet bullet = UnityEngine.Object.Instantiate(GameManager.instance.bulletPrefab, (Vector2)shooter.transform.position + shotDir * (SerializedData.GetStat(PlayerStats.SIZE) * .35f), Quaternion.identity).GetComponent<Bullet>();
                 bullet.transform.localScale = Vector3.one * size;
 
-                bullet.Initialize(shotDir * speed, color, tag);
+                bullet.Initialize(shotDir * speed, true, null, color, layer);
             }
         }
         float rate = (baseFireRate + mods.rateAdder) * mods.rateMultiplier;

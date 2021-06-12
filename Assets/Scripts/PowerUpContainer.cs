@@ -9,10 +9,32 @@ public class PowerUpContainer : MonoBehaviour
     private void Awake()
     {
         powerups = new List<GameObject>();
+        InitializeSerializedPowerups();
     }
 
-    public void CreatePowerUpVisual()
+    private void InitializeSerializedPowerups()
     {
 
+    }
+
+    public void UpdateScales()
+    {
+        float size = (.3f / transform.lossyScale.x);
+        foreach (GameObject go in powerups)
+        {
+            go.transform.localScale = Vector3.one * size;
+        }
+    }
+
+    public void CreatePowerUpVisual(Sprite sprite)
+    {
+        GameObject visual = new GameObject("Power Up " + sprite.name);
+        SpriteRenderer rend = visual.AddComponent<SpriteRenderer>();
+        rend.sprite = sprite;
+        rend.sortingOrder = 9;
+        visual.transform.SetParent(transform);
+        visual.transform.localPosition = Vector3.zero;
+        visual.transform.localScale = Vector3.one * (.3f / transform.lossyScale.x);
+        powerups.Add(visual);
     }
 }

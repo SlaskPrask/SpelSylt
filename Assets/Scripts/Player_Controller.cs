@@ -14,11 +14,15 @@ public class Player_Controller : Entity_Controller
     [SerializeField]private bool isAbsorbing;
     private List<GameObject> overlappedPowerups;
     public PowerUpContainer powerupVisuals;
+    private float gotoSize;
+    private Coroutine sizeRoutine;
+
 
     protected override void AwakeInit()
     {
         body.drag = SerializedData.GetStat(PlayerStats.DECELERATION);
-        transform.localScale = Vector3.one * SerializedData.GetStat(PlayerStats.SIZE);
+        gotoSize = SerializedData.GetStat(PlayerStats.SIZE);
+        transform.localScale = Vector3.one * gotoSize;
         matProps = new MaterialPropertyBlock();
         renderer.GetPropertyBlock(matProps);
         isAbsorbing = false;
@@ -44,16 +48,24 @@ public class Player_Controller : Entity_Controller
         {
             for (int i = overlappedPowerups.Count - 1; i >= 0; i--)
             {
+                gotoSize += .3f;
                 AbsorbPower(overlappedPowerups[i].GetComponent<PowerUp_Object>());
                 Destroy(overlappedPowerups[i]);
             }
             overlappedPowerups.Clear();
+            powerupVisuals.UpdateScales();
+            if (sizeRoutine != null)
+            {
+                StopCoroutine(sizeRoutine);
+            }
+            sizeRoutine = StartCoroutine(UpdateSize());
         }
     }
 
     private void AbsorbPower(PowerUp_Object power)
     {
-
+        SerializedData.AddPowerUp(power.powerup.power);
+        powerupVisuals.CreatePowerUpVisual(power.powerup.sprite);
     }
 
     private void HandleShots()
@@ -122,7 +134,7 @@ public class Player_Controller : Entity_Controller
 
     public void OnAbsorb(InputValue val)
     {
-        isAbsorbing = val.isPressed;
+        isAbsorbing = val.Get<float>() > .5f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -156,5 +168,19 @@ public class Player_Controller : Entity_Controller
             default:
                 break;
         }
+    }
+
+    IEnumerator UpdateSize()
+    {
+        float t = 0;
+
+        do
+        {
+            transform.localScale = Vector3.one * Mathf.Lerp(transform.localScale.x, gotoSize, t / .25f);
+
+            t += Time.deltaTime;
+            yield return null;
+
+        } while (t < .25f);
     }
 }
