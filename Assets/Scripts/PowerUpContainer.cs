@@ -17,9 +17,14 @@ public class PowerUpContainer : MonoBehaviour
 
     }
 
+    public void RemovePowerUp(int index)
+    {
+        powerups.RemoveAt(index);
+    }
+
     public void UpdateScales()
     {
-        float size = (1f / transform.lossyScale.x);
+        float size = (1f / SerializedData.GetStat(PlayerStats.SIZE));
         foreach (GameObject go in powerups)
         {
             go.transform.localScale = Vector3.one * size;
@@ -34,7 +39,7 @@ public class PowerUpContainer : MonoBehaviour
         rend.sortingOrder = 9;
         visual.transform.SetParent(transform);
         visual.transform.localPosition = Vector3.zero;
-        visual.transform.localScale = Vector3.one * (1f / transform.lossyScale.x);
+        visual.transform.localScale = Vector3.one * (1f / SerializedData.GetStat(PlayerStats.SIZE));
         powerups.Add(visual);
     }
 }

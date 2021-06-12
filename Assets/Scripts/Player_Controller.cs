@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,15 @@ public class Player_Controller : Entity_Controller
     public PowerUpContainer powerupVisuals;
     private float gotoSize;
     private Coroutine sizeRoutine;
-    public UnityEvent<float, float> onHealthChange = new UnityEvent<float, float>();
+    [HideInInspector] public UnityEvent<float, float> onHealthChange = new UnityEvent<float, float>();
+    [HideInInspector] public UnityEvent<PowerUp_Object> onAbsorbedItem = new UnityEvent<PowerUp_Object>();
+    [HideInInspector] public UnityEvent onNext = new UnityEvent();
+    [HideInInspector] public UnityEvent<int> onNumberInput = new UnityEvent<int>();
+    [HideInInspector] public UnityEvent onDigest = new UnityEvent();
+    
     private bool dead;
+    private float invincibility;
+    
     protected override void AwakeInit()
     {
         body.drag = SerializedData.GetStat(PlayerStats.DECELERATION);
@@ -29,6 +37,7 @@ public class Player_Controller : Entity_Controller
         isAbsorbing = false;
         overlappedPowerups = new List<GameObject>();
         dead = false;
+        invincibility = 0f;
     }
 
     private void FixedUpdate()
@@ -56,15 +65,22 @@ public class Player_Controller : Entity_Controller
 
     private void HandleAbsorb()
     {
-        if (isAbsorbing)
+        if (isAbsorbing && overlappedPowerups.Count > 0)
         {
-            for (int i = overlappedPowerups.Count - 1; i >= 0; i--)
+            Stack<byte> delete = new Stack<byte>();
+            for (byte i = 0; i < overlappedPowerups.Count; i++)
             {
+                if (SerializedData.PowerCount > 9)
+                    break;
+
                 gotoSize += .3f;
-                AbsorbPower(overlappedPowerups[i].GetComponent<PowerUp_Object>());
+                PowerUp_Object obj = overlappedPowerups[i].GetComponent<PowerUp_Object>();
+                AbsorbPower(obj);
+                onAbsorbedItem.Invoke(obj);
                 Destroy(overlappedPowerups[i]);
+                delete.Push(i);
             }
-            overlappedPowerups.Clear();
+
             powerupVisuals.UpdateScales();
             if (sizeRoutine != null)
             {
@@ -155,6 +171,82 @@ public class Player_Controller : Entity_Controller
         isAbsorbing = val.Get<float>() > .5f;
     }
 
+    public void OnDigest(InputValue val)
+    {
+        int powers = SerializedData.PowerCount;
+        if (powers == 0)
+            return;
+
+        if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1)
+        {
+            //Error noise
+            return;
+        }
+        else
+        {
+            SerializedData.RemoveSelectedPowerUp();
+            powerupVisuals.RemovePowerUp((int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT));
+            onDigest.Invoke();
+            gotoSize -= .3f;
+            if (sizeRoutine != null)
+            {
+                StopCoroutine(sizeRoutine);
+            }
+            sizeRoutine = StartCoroutine(UpdateSize());
+        }
+    }
+
+    public void OnNextItem(InputValue val)
+    {
+        onNext.Invoke();
+    }
+
+    public void On_1(InputValue val)
+    {
+        onNumberInput.Invoke(0);
+    }
+
+    public void On_2(InputValue val)
+    {
+        onNumberInput.Invoke(1);
+    }
+
+
+    public void On_3(InputValue val)
+    {
+        onNumberInput.Invoke(2);
+    }
+
+    public void On_4(InputValue val)
+    {
+        onNumberInput.Invoke(3);
+    }
+
+    public void On_5(InputValue val)
+    {
+        onNumberInput.Invoke(4);
+    }
+
+    public void On_6(InputValue val)
+    {
+        onNumberInput.Invoke(5);
+    }
+
+    public void On_7(InputValue val)
+    {
+        onNumberInput.Invoke(6);
+    }
+
+    public void On_8(InputValue val)
+    {
+        onNumberInput.Invoke(7);
+    }
+
+    public void On_9(InputValue val)
+    {
+        onNumberInput.Invoke(8);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.layer)
@@ -168,17 +260,25 @@ public class Player_Controller : Entity_Controller
                 break;
             case 9: //Enemy Bullet
             case 11: //Neutral Damage
-                Damage(.5f);
+                if (invincibility > 0f)
+                    return;
+
+                Vector2 knockDir = transform.position - collision.transform.position;
+
+                Damage(.5f, 100, knockDir.normalized);
                 break;
             default:
                 break;
         }
     }
 
-    public void Damage(float value)
+    public void Damage(float value, float knockback, Vector2 knockDir)
     {
+
         float hp = SerializedData.GetStat(PlayerStats.CURRENT_HP);
+        float prevHp = hp;
         float maxHP = SerializedData.GetStat(PlayerStats.MAX_HP);
+        
         hp = Mathf.Clamp(hp - value, 0f, maxHP);
         SerializedData.UpdateStat(PlayerStats.CURRENT_HP, hp);
         onHealthChange.Invoke(hp, maxHP);
@@ -187,7 +287,11 @@ public class Player_Controller : Entity_Controller
         {
             dead = true;
         }
-
+        else if (hp < prevHp)
+        {
+            body.AddForce(knockDir * Mathf.Max(knockback - SerializedData.GetStat(PlayerStats.KNOCKBACK_RESISTANCE), 0f), ForceMode2D.Impulse);
+            StartCoroutine(Invincibility());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -208,15 +312,36 @@ public class Player_Controller : Entity_Controller
 
     IEnumerator UpdateSize()
     {
+        SerializedData.UpdateStat(PlayerStats.SIZE, gotoSize);
         float t = 0;
 
         do
         {
             transform.localScale = Vector3.one * Mathf.Lerp(transform.localScale.x, gotoSize, t / .25f);
-
+            powerupVisuals.UpdateScales();
             t += Time.deltaTime;
             yield return null;
 
         } while (t < .25f);
+    }
+
+    IEnumerator Invincibility()
+    {
+        invincibility = SerializedData.GetStat(PlayerStats.INVINCIBILITY_TIME);
+        Color c;
+        int count = 0;
+        while (invincibility > 0f)
+        {
+            c = renderer.color;
+            //.5->0->.5->1 repeat
+            invincibility -= Time.deltaTime;
+            count = (count + 1) % 4;
+            yield return null;
+            c.a = Mathf.Max((count * .5f - count / 3) - .25f, 0f); //0 .5 1 .5 
+            renderer.color = c;
+        }
+        c = renderer.color;
+        c.a = .75f;
+        renderer.color = c;
     }
 }

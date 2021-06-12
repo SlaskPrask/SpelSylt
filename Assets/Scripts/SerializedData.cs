@@ -6,6 +6,7 @@ public static class SerializedData
 {
     private static PlayerData activeData;
 
+    public static int PowerCount { get => activeData.powerUps.Count; }
 
     static SerializedData()
     {
@@ -26,6 +27,9 @@ public static class SerializedData
                 70f, //Acceleration
                 10f, //Deceleration
                 10f, //Curren HP
+                .5f, //Invincibility Time
+                20f, //Knockback resistance
+                0f, //Selected slot in powerup bar
             },
             baseShot = Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>(),
             powerUps = new List<PowerUp>()
@@ -36,6 +40,13 @@ public static class SerializedData
     public static void UpdateStat(PlayerStats stat, float value)
     {
         activeData.data[(byte)stat] = value;
+    }
+
+    public static bool TryGetPowerupSprite(int index, out Sprite sprite)
+    {
+
+        sprite = null;
+        return false;
     }
 
     public static float GetStat(PlayerStats stat)
@@ -49,6 +60,11 @@ public static class SerializedData
         shots.Add(activeData.baseShot);
 
         return shots;
+    }
+
+    public static void RemoveSelectedPowerUp()
+    {
+        activeData.powerUps.RemoveAt((int)GetStat(PlayerStats.SELECTED_SLOT));
     }
 
     public static List<GameObject> GetShotHitInitializers(out bool destroyOnImpact)
@@ -122,4 +138,7 @@ public enum PlayerStats : byte
     ACCELERATION = 5,
     DECELERATION = 6,
     CURRENT_HP = 7,
+    INVINCIBILITY_TIME = 8,
+    KNOCKBACK_RESISTANCE = 9,
+    SELECTED_SLOT = 10,
 }

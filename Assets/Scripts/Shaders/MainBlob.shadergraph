@@ -7,9 +7,6 @@
             "m_Id": "2d3a50bbc8f44cce9b3e5cd88ec1b37e"
         },
         {
-            "m_Id": "4ba08cdb8af54a338d2f913f62c09d63"
-        },
-        {
             "m_Id": "90e970d0d456484f81f4d0aa23225595"
         },
         {
@@ -1895,30 +1892,6 @@
     "m_Labels": [
         "Y"
     ]
-}
-
-{
-    "m_SGVersion": 3,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
-    "m_ObjectId": "4ba08cdb8af54a338d2f913f62c09d63",
-    "m_Guid": {
-        "m_GuidSerialized": "3948ec88-adf3-49cc-b1a2-2600f009fb96"
-    },
-    "m_Name": "MainColor",
-    "m_DefaultReferenceName": "Color_4ba08cdb8af54a338d2f913f62c09d63",
-    "m_OverrideReferenceName": "_Color",
-    "m_GeneratePropertyBlock": true,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": {
-        "r": 0.3537735939025879,
-        "g": 0.8081863522529602,
-        "b": 1.0,
-        "a": 1.0
-    },
-    "m_ColorMode": 0
 }
 
 {
