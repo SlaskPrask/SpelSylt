@@ -30,6 +30,7 @@ public static class SerializedData
                 .5f, //Invincibility Time
                 20f, //Knockback resistance
                 0f, //Selected slot in powerup bar
+                .75f, //Base Damage
             },
             baseShot = Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>(),
             powerUps = new List<PowerUp>()
@@ -92,7 +93,8 @@ public static class SerializedData
         {
             rateMultiplier = 1,
             speedMultiplier = 1,
-            sizeMultiplier = 1
+            sizeMultiplier = 1,
+            damageMultiplier = 1,
         };
 
         foreach (PowerUp power in activeData.powerUps)
@@ -103,10 +105,12 @@ public static class SerializedData
                 mods.rateAdder += bulletMod.shotModifiers.rateAdder;
                 mods.sizeAdder += bulletMod.shotModifiers.sizeAdder;
                 mods.speedAdder += bulletMod.shotModifiers.speedAdder;
+                mods.damageAdder += bulletMod.shotModifiers.damageAdder;
                 
                 mods.rateMultiplier *= bulletMod.shotModifiers.rateMultiplier;
                 mods.sizeMultiplier *= bulletMod.shotModifiers.sizeMultiplier;
                 mods.speedMultiplier *= bulletMod.shotModifiers.speedMultiplier;
+                mods.damageMultiplier += bulletMod.shotModifiers.damageMultiplier;
             }
         }
 
@@ -141,4 +145,5 @@ public enum PlayerStats : byte
     INVINCIBILITY_TIME = 8,
     KNOCKBACK_RESISTANCE = 9,
     SELECTED_SLOT = 10,
+    DAMAGE = 11,
 }

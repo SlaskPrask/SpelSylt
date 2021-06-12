@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
     public GameObject bulletPrefab;
+    public GameObject powerPrefab;
     private void Awake()
     {
         if (instance == null)

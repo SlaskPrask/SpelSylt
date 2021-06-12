@@ -14,6 +14,12 @@ public class PowerUp_Scriptable : ScriptableObject
     {
         return (T)power;
     }
+
+    public void Instantiate(Vector2 position)
+    {
+       PowerUp_Object power = Instantiate(GameManager.instance.powerPrefab, position, Quaternion.identity, null).GetComponent<PowerUp_Object>();
+       power.Initialize(this);
+    }
 }
 
 [System.Serializable]

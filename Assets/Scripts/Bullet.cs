@@ -8,11 +8,14 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody2D body;
     bool destroyOnImpact;
     [SerializeField] List<GameObject> initOnHit;
+    public float damage { get; private set; }
 
-    public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer)
+    public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer, float dmg)
     {
+        damage = dmg;
         gameObject.layer = layer;
         destroyOnImpact = destOnImpact;
+        GetComponent<SpriteRenderer>().color = color;
         body.velocity = velocity;
         this.initOnHit = initOnHit;
         Destroy(gameObject, 2f);
@@ -44,6 +47,8 @@ public struct ShotModifiers
     public float speedMultiplier;
     public float rateAdder;
     public float rateMultiplier;
+    public float damageAdder;
+    public float damageMultiplier;
 }
 
 [Flags]

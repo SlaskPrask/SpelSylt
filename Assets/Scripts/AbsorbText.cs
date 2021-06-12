@@ -8,7 +8,7 @@ public class AbsorbText : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject player;
     private string currentString;
-    private RectTransform transform;
+    private new RectTransform transform;
     private float textSpeed = 0.2f;
     private float fadeTime = 2.0f;
     private int timer;
