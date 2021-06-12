@@ -18,28 +18,44 @@ public class PowerUp_ExtraShot : PowerUp
         if (lastShotTime - Time.time > 0f)
             return;
 
+        ShotModifiers mods;
+        string tag;
+        if (shooter.gameObject.layer == 6)
+        {
+            tag = "Player";
+            mods = SerializedData.GetShotModifiers();
+        }
+        else
+        {
+            tag = "Enemy";
+            mods = new ShotModifiers
+            {
+                sizeAdder = 0,
+                sizeMultiplier = 1,
+                speedAdder = 0,
+                speedMultiplier = 1,
+                rateAdder = 0,
+                rateMultiplier = 0
+            };
+        }
+
         for (int i = 1; i <= 128; i += i)
         {
             if (shotDirections.HasFlag((ShotDirection)i))
             {
+                float size = ((baseSize + mods.sizeAdder) * mods.sizeMultiplier);
+                float speed = (baseFireSpeed + mods.speedAdder) * mods.speedMultiplier;
+
                 float dir = Mathf.Log(i, 2);
                 Vector2 shotDir = Quaternion.AngleAxis(45 * dir, Vector3.forward) * shotDirection;
                 Bullet bullet = UnityEngine.Object.Instantiate(GameManager.instance.bulletPrefab, (Vector2)shooter.transform.position + shotDir * (SerializedData.GetStat(PlayerStats.SIZE) * .35f), Quaternion.identity).GetComponent<Bullet>();
-                bullet.transform.localScale = Vector3.one * baseSize;
-                string tag;
-                if (shooter.gameObject.layer == 6)
-                {
-                    tag = "Player";
-                }
-                else
-                {
-                    tag = "Enemy";
-                }
+                bullet.transform.localScale = Vector3.one * size;
 
-                bullet.Initialize(shotDir * baseFireSpeed, color, tag);
+                bullet.Initialize(shotDir * speed, color, tag);
             }
         }
-        lastShotTime = Time.time + 1f / baseFireRate;
+        float rate = (baseFireRate + mods.rateAdder) * mods.rateMultiplier;
+        lastShotTime = Time.time + 1f / rate;
     }
 }
 

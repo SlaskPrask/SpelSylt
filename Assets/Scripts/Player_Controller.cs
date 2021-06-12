@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class Player_Controller : Entity_Controller
 {
@@ -10,6 +11,7 @@ public class Player_Controller : Entity_Controller
     private float animationTime;
     public float baseAnimTime = 10;
     private float velMagnitude;
+    private bool isAbsorbing;
 
     protected override void AwakeInit()
     {
@@ -17,6 +19,7 @@ public class Player_Controller : Entity_Controller
         transform.localScale = Vector3.one * SerializedData.GetStat(PlayerStats.SIZE);
         matProps = new MaterialPropertyBlock();
         renderer.GetPropertyBlock(matProps);
+        isAbsorbing = false;
     }
 
     private void FixedUpdate()
@@ -93,5 +96,10 @@ public class Player_Controller : Entity_Controller
     public void OnMove(InputValue val)
     {
         move = val.Get<Vector2>();
+    }
+
+    public void OnAbsorb(InputValue val)
+    {
+        isAbsorbing = val.isPressed;
     }
 }

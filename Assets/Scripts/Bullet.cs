@@ -12,3 +12,14 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 }
+
+[System.Serializable]
+public struct ShotModifiers
+{
+    public float sizeAdder;
+    public float sizeMultiplier;
+    public float speedAdder;
+    public float speedMultiplier;
+    public float rateAdder;
+    public float rateMultiplier;
+}
