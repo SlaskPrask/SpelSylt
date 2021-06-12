@@ -1,118 +1,97 @@
 fileFormatVersion: 2
-guid: f0897323cb3fc834f92e5497809a2ddc
+guid: 67f264f143adf1e4ea8cd5c037ea2e21
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1845772998804017691
-    second: ground_tileset_complete_3_0
+      213: 7739886953266849881
+    second: ground_tileset_complete_5_0
   - first:
-      213: -3327723097032570101
-    second: ground_tileset_complete_3_1
+      213: 3422311840284453982
+    second: ground_tileset_complete_5_1
   - first:
-      213: -8384047587943803053
-    second: ground_tileset_complete_3_2
+      213: -3262637035750115458
+    second: ground_tileset_complete_5_2
   - first:
-      213: -4010291093186694015
-    second: ground_tileset_complete_3_3
+      213: 1447210983108997012
+    second: ground_tileset_complete_5_3
   - first:
-      213: 4411200314066373266
-    second: ground_tileset_complete_3_4
+      213: -6520490063257497657
+    second: ground_tileset_complete_5_4
   - first:
-      213: 8948138067492362523
-    second: ground_tileset_complete_3_5
+      213: -5074299086516181392
+    second: ground_tileset_complete_5_5
   - first:
-      213: 509198775378395530
-    second: ground_tileset_complete_3_6
+      213: -4396866994915965946
+    second: ground_tileset_complete_5_6
   - first:
-      213: 4264340798777714147
-    second: ground_tileset_complete_3_7
+      213: -5028405711537339121
+    second: ground_tileset_complete_5_7
   - first:
-      213: -3125001258714179068
-    second: ground_tileset_complete_3_8
+      213: -5971252174137678161
+    second: ground_tileset_complete_5_8
   - first:
-      213: 3609347176150740581
-    second: ground_tileset_complete_3_9
+      213: 5666422312713937865
+    second: ground_tileset_complete_5_9
   - first:
-      213: -1303968941611584839
-    second: ground_tileset_complete_3_10
+      213: 9068547752054068896
+    second: ground_tileset_complete_5_10
   - first:
-      213: -3700147475694561440
-    second: ground_tileset_complete_3_11
+      213: 1160266448203210860
+    second: ground_tileset_complete_5_11
   - first:
-      213: 7431390031805258895
-    second: ground_tileset_complete_3_12
+      213: 5872756621218149443
+    second: ground_tileset_complete_5_12
   - first:
-      213: -7347576649554811086
-    second: ground_tileset_complete_3_13
+      213: -5080888218861219280
+    second: ground_tileset_complete_5_13
   - first:
-      213: -2940109561679264703
-    second: ground_tileset_complete_3_14
+      213: -656398475866683350
+    second: ground_tileset_complete_5_14
   - first:
-      213: -6795854936022704236
-    second: ground_tileset_complete_3_15
+      213: -3962542917332705309
+    second: ground_tileset_complete_5_15
   - first:
-      213: 6018252248826820788
-    second: ground_tileset_complete_3_16
+      213: -1708277434501741105
+    second: ground_tileset_complete_5_16
   - first:
-      213: -3855457124229836002
-    second: ground_tileset_complete_3_17
+      213: -7162997631903701205
+    second: ground_tileset_complete_5_17
   - first:
-      213: -3454302723157658629
-    second: ground_tileset_complete_3_18
+      213: 1454114966986502257
+    second: ground_tileset_complete_5_18
   - first:
-      213: 6012688763526466077
-    second: ground_tileset_complete_3_19
+      213: 7018322360135963407
+    second: ground_tileset_complete_5_19
   - first:
-      213: 429674153426326744
-    second: ground_tileset_complete_3_20
+      213: 6584578598598599179
+    second: ground_tileset_complete_5_20
   - first:
-      213: 8562002265583313166
-    second: ground_tileset_complete_3_21
+      213: -6893791373209005533
+    second: ground_tileset_complete_5_21
   - first:
-      213: -9099052519292887452
-    second: ground_tileset_complete_3_22
+      213: -4296816925697620514
+    second: ground_tileset_complete_5_22
   - first:
-      213: 5522402672583575757
-    second: ground_tileset_complete_3_23
+      213: -8878673320192486029
+    second: ground_tileset_complete_5_23
   - first:
-      213: 8106048325098716063
-    second: ground_tileset_complete_3_24
+      213: 8800519113478964527
+    second: ground_tileset_complete_5_24
   - first:
-      213: 2004674845684422614
-    second: ground_tileset_complete_3_25
+      213: 4339481622347909949
+    second: ground_tileset_complete_5_25
   - first:
-      213: 2818978468942904826
-    second: ground_tileset_complete_3_26
+      213: -3852740730350355142
+    second: ground_tileset_complete_5_26
   - first:
-      213: 1777194408436337151
-    second: ground_tileset_complete_3_27
+      213: 984859941124392396
+    second: ground_tileset_complete_5_27
   - first:
-      213: -7891984248136635845
-    second: ground_tileset_complete_3_28
+      213: -8726783416336388561
+    second: ground_tileset_complete_5_28
   - first:
-      213: -3732147188295565480
-    second: ground_tileset_complete_3_29
-  - first:
-      213: 6604770320246638984
-    second: ground_tileset_complete_3_30
-  - first:
-      213: -7329974517810996162
-    second: ground_tileset_complete_3_31
-  - first:
-      213: -4026611847227147294
-    second: ground_tileset_complete_3_32
-  - first:
-      213: -9155826164417461075
-    second: ground_tileset_complete_3_33
-  - first:
-      213: -1763197579157237189
-    second: ground_tileset_complete_3_34
-  - first:
-      213: -1451739325364259149
-    second: ground_tileset_complete_3_35
-  - first:
-      213: -2493741918509322885
-    second: ground_tileset_complete_3_36
+      213: 2140805585148439492
+    second: ground_tileset_complete_5_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -214,178 +193,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ground_tileset_complete_3_0
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1298b953c08d9910800000000000000
-      internalID: 1845772998804017691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_1
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0bc28a697d81d1d0800000000000000
-      internalID: -3327723097032570101
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_2
+      name: ground_tileset_complete_5_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35793aca321e5ab80800000000000000
-      internalID: -8384047587943803053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 184b1b88f759858c0800000000000000
-      internalID: -4010291093186694015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29a8409605bb73d30800000000000000
-      internalID: 4411200314066373266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_5
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b195802c92c2e2c70800000000000000
-      internalID: 8948138067492362523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a814e7e9699011700800000000000000
-      internalID: 509198775378395530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_7
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e5e950fc5bfd2b30800000000000000
-      internalID: 4264340798777714147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_8
-      rect:
-        serializedVersion: 2
-        x: 192
         y: 128
         width: 32
         height: 32
@@ -396,14 +207,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40a51b389e3c1a4d0800000000000000
-      internalID: -3125001258714179068
+      spriteID: 958a6232d2a996b60800000000000000
+      internalID: 7739886953266849881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_9
+      name: ground_tileset_complete_5_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ca4ce8c7e7e7f20800000000000000
+      internalID: 3422311840284453982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_tileset_complete_5_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77b415f6e8c8b2d0800000000000000
+      internalID: -3262637035750115458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_tileset_complete_5_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f6143b8b6851410800000000000000
+      internalID: 1447210983108997012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_tileset_complete_5_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cf8212a5d09285a0800000000000000
+      internalID: -6520490063257497657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground_tileset_complete_5_5
       rect:
         serializedVersion: 2
         x: 0
@@ -411,20 +306,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56e2681322af61230800000000000000
-      internalID: 3609347176150740581
+      spriteID: 0762d189dd77499b0800000000000000
+      internalID: -5074299086516181392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_10
+      name: ground_tileset_complete_5_6
       rect:
         serializedVersion: 2
         x: 32
@@ -432,20 +327,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b27915082f57ede0800000000000000
-      internalID: -1303968941611584839
+      spriteID: 604056383c03bf2c0800000000000000
+      internalID: -4396866994915965946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_11
+      name: ground_tileset_complete_5_7
       rect:
         serializedVersion: 2
         x: 64
@@ -453,20 +348,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 067daae997f66acc0800000000000000
-      internalID: -3700147475694561440
+      spriteID: f058541a5a3873ab0800000000000000
+      internalID: -5028405711537339121
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_12
+      name: ground_tileset_complete_5_8
       rect:
         serializedVersion: 2
         x: 96
@@ -474,20 +369,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8c91295cd9912760800000000000000
-      internalID: 7431390031805258895
+      spriteID: fa6ae30e8c9d12da0800000000000000
+      internalID: -5971252174137678161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_13
+      name: ground_tileset_complete_5_9
       rect:
         serializedVersion: 2
         x: 128
@@ -495,20 +390,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237a45367f9280a90800000000000000
-      internalID: -7347576649554811086
+      spriteID: 9c369a8421d23ae40800000000000000
+      internalID: 5666422312713937865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_14
+      name: ground_tileset_complete_5_10
       rect:
         serializedVersion: 2
         x: 160
@@ -516,41 +411,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 144c0675ee1a237d0800000000000000
-      internalID: -2940109561679264703
+      spriteID: 0a699dd1224f9dd70800000000000000
+      internalID: 9068547752054068896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_15
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49f184111f540b1a0800000000000000
-      internalID: -6795854936022704236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_16
+      name: ground_tileset_complete_5_11
       rect:
         serializedVersion: 2
         x: 0
@@ -558,20 +432,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b8b404c880258350800000000000000
-      internalID: 6018252248826820788
+      spriteID: c60e4f1ff281a1010800000000000000
+      internalID: 1160266448203210860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_17
+      name: ground_tileset_complete_5_12
       rect:
         serializedVersion: 2
         x: 32
@@ -579,20 +453,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e13188f2c2aae7ac0800000000000000
-      internalID: -3855457124229836002
+      spriteID: 344f7042809308150800000000000000
+      internalID: 5872756621218149443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_18
+      name: ground_tileset_complete_5_13
       rect:
         serializedVersion: 2
         x: 64
@@ -600,20 +474,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 17, y: 0, z: 0, w: 28}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf3f58799f9df00d0800000000000000
-      internalID: -3454302723157658629
+      spriteID: 0325f4ba51f0d79b0800000000000000
+      internalID: -5080888218861219280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_19
+      name: ground_tileset_complete_5_14
       rect:
         serializedVersion: 2
         x: 96
@@ -621,20 +495,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 28}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a4af6e29c517350800000000000000
-      internalID: 6012688763526466077
+      spriteID: a28cbde501104e6f0800000000000000
+      internalID: -656398475866683350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_20
+      name: ground_tileset_complete_5_15
       rect:
         serializedVersion: 2
         x: 128
@@ -642,20 +516,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 17, w: 28}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d49424bd5286f500800000000000000
-      internalID: 429674153426326744
+      spriteID: 3efd42d06383209c0800000000000000
+      internalID: -3962542917332705309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_21
+      name: ground_tileset_complete_5_16
       rect:
         serializedVersion: 2
         x: 0
@@ -663,20 +537,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e01ee2672b752d670800000000000000
-      internalID: 8562002265583313166
+      spriteID: fc545b269bafa48e0800000000000000
+      internalID: -1708277434501741105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_22
+      name: ground_tileset_complete_5_17
       rect:
         serializedVersion: 2
         x: 32
@@ -684,20 +558,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46e9cea41fba9b180800000000000000
-      internalID: -9099052519292887452
+      spriteID: b276a6fda9be79c90800000000000000
+      internalID: -7162997631903701205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_23
+      name: ground_tileset_complete_5_18
       rect:
         serializedVersion: 2
         x: 64
@@ -705,20 +579,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc80306c8f383ac40800000000000000
-      internalID: 5522402672583575757
+      spriteID: 1703fc5bbdd0e2410800000000000000
+      internalID: 1454114966986502257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_24
+      name: ground_tileset_complete_5_19
       rect:
         serializedVersion: 2
         x: 96
@@ -726,20 +600,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9bb8a501087e7070800000000000000
-      internalID: 8106048325098716063
+      spriteID: f03d51b7007166160800000000000000
+      internalID: 7018322360135963407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_25
+      name: ground_tileset_complete_5_20
       rect:
         serializedVersion: 2
         x: 128
@@ -747,20 +621,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d75e23a62902db10800000000000000
-      internalID: 2004674845684422614
+      spriteID: b02eb1d495f116b50800000000000000
+      internalID: 6584578598598599179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_26
+      name: ground_tileset_complete_5_21
       rect:
         serializedVersion: 2
         x: 160
@@ -768,20 +642,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 17, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afdf0de5bf50f1720800000000000000
-      internalID: 2818978468942904826
+      spriteID: 322993c55455450a0800000000000000
+      internalID: -6893791373209005533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_27
+      name: ground_tileset_complete_5_22
       rect:
         serializedVersion: 2
         x: 192
@@ -789,41 +663,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff988a306ecd9a810800000000000000
-      internalID: 1777194408436337151
+      spriteID: ed548e685c3ae54c0800000000000000
+      internalID: -4296816925697620514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_28
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 17, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3a66dcc32a0a7290800000000000000
-      internalID: -7891984248136635845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_29
+      name: ground_tileset_complete_5_23
       rect:
         serializedVersion: 2
         x: 0
@@ -831,20 +684,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f7b20f7efb43cc0800000000000000
-      internalID: -3732147188295565480
+      spriteID: 375503118ad98c480800000000000000
+      internalID: -8878673320192486029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_30
+      name: ground_tileset_complete_5_24
       rect:
         serializedVersion: 2
         x: 32
@@ -852,20 +705,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8890859dc9bd8ab50800000000000000
-      internalID: 6604770320246638984
+      spriteID: f2503fda189b12a70800000000000000
+      internalID: 8800519113478964527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_31
+      name: ground_tileset_complete_5_25
       rect:
         serializedVersion: 2
         x: 64
@@ -873,20 +726,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3cd53d0303b64a90800000000000000
-      internalID: -7329974517810996162
+      spriteID: d3b02614b8fe83c30800000000000000
+      internalID: 4339481622347909949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_32
+      name: ground_tileset_complete_5_26
       rect:
         serializedVersion: 2
         x: 96
@@ -894,20 +747,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb75addbd99e18c0800000000000000
-      internalID: -4026611847227147294
+      spriteID: a3db9cbe7b0588ac0800000000000000
+      internalID: -3852740730350355142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_33
+      name: ground_tileset_complete_5_27
       rect:
         serializedVersion: 2
         x: 128
@@ -915,20 +768,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da48ba4fc98ffe080800000000000000
-      internalID: -9155826164417461075
+      spriteID: cc54b3006eceaad00800000000000000
+      internalID: 984859941124392396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_34
+      name: ground_tileset_complete_5_28
       rect:
         serializedVersion: 2
         x: 160
@@ -936,20 +789,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 18, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b321181c42dd787e0800000000000000
-      internalID: -1763197579157237189
+      spriteID: f2eef7528bc34e680800000000000000
+      internalID: -8726783416336388561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tileset_complete_3_35
+      name: ground_tileset_complete_5_29
       rect:
         serializedVersion: 2
         x: 192
@@ -957,35 +810,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b6b23576c26adbe0800000000000000
-      internalID: -1451739325364259149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ground_tileset_complete_3_36
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 18, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7d20c100f2746dd0800000000000000
-      internalID: -2493741918509322885
+      spriteID: 4cbe1f3565ba5bd10800000000000000
+      internalID: 2140805585148439492
       vertices: []
       indices: 
       edges: []
