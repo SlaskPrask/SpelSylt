@@ -11,7 +11,9 @@ public class Player_Controller : Entity_Controller
     private float animationTime;
     public float baseAnimTime = 10;
     private float velMagnitude;
-    private bool isAbsorbing;
+    [SerializeField]private bool isAbsorbing;
+    private List<GameObject> overlappedPowerups;
+    public PowerUpContainer powerupVisuals;
 
     protected override void AwakeInit()
     {
@@ -20,6 +22,7 @@ public class Player_Controller : Entity_Controller
         matProps = new MaterialPropertyBlock();
         renderer.GetPropertyBlock(matProps);
         isAbsorbing = false;
+        overlappedPowerups = new List<GameObject>();
     }
 
     private void FixedUpdate()
@@ -32,6 +35,25 @@ public class Player_Controller : Entity_Controller
     {
         velMagnitude = body.velocity.magnitude;
         HandleShots();
+        HandleAbsorb();
+    }
+
+    private void HandleAbsorb()
+    {
+        if (isAbsorbing)
+        {
+            for (int i = overlappedPowerups.Count - 1; i >= 0; i--)
+            {
+                AbsorbPower(overlappedPowerups[i].GetComponent<PowerUp_Object>());
+                Destroy(overlappedPowerups[i]);
+            }
+            overlappedPowerups.Clear();
+        }
+    }
+
+    private void AbsorbPower(PowerUp_Object power)
+    {
+
     }
 
     private void HandleShots()
@@ -101,5 +123,38 @@ public class Player_Controller : Entity_Controller
     public void OnAbsorb(InputValue val)
     {
         isAbsorbing = val.isPressed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case 8: //power up
+                
+                if (!overlappedPowerups.Contains(collision.gameObject))
+                {
+                    overlappedPowerups.Add(collision.gameObject);
+                }
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case 8: //power up
+
+                if (overlappedPowerups.Contains(collision.gameObject))
+                {
+                    overlappedPowerups.Remove(collision.gameObject);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
