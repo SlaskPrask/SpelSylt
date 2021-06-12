@@ -18,7 +18,7 @@ public class Player_Controller : Entity_Controller
     private float gotoSize;
     private Coroutine sizeRoutine;
     public UnityEvent<float, float> onHealthChange = new UnityEvent<float, float>();
-
+    private bool dead;
     protected override void AwakeInit()
     {
         body.drag = SerializedData.GetStat(PlayerStats.DECELERATION);
@@ -28,16 +28,27 @@ public class Player_Controller : Entity_Controller
         renderer.GetPropertyBlock(matProps);
         isAbsorbing = false;
         overlappedPowerups = new List<GameObject>();
+        dead = false;
     }
 
     private void FixedUpdate()
     {
+        if (dead)
+        {
+            body.velocity = Vector2.zero;
+            return;
+        }
         body.AddForce(move * SerializedData.GetStat(PlayerStats.ACCELERATION));
         body.velocity = Vector2.ClampMagnitude(body.velocity, SerializedData.GetStat(PlayerStats.MAX_SPEED));
     }
 
     private void Update()
     {
+        if (dead)
+        {
+            return;
+        }
+
         velMagnitude = body.velocity.magnitude;
         HandleShots();
         HandleAbsorb();
@@ -109,7 +120,13 @@ public class Player_Controller : Entity_Controller
     }
 
     private void LateUpdate()
-    {     
+    {
+        if (dead)
+        {
+            return;
+        }
+
+
         Vector2 velocity;
         if (velMagnitude < 0.05f)
         {
@@ -149,6 +166,10 @@ public class Player_Controller : Entity_Controller
                     overlappedPowerups.Add(collision.gameObject);
                 }
                 break;
+            case 9: //Enemy Bullet
+            case 11: //Neutral Damage
+                Damage(.5f);
+                break;
             default:
                 break;
         }
@@ -159,8 +180,14 @@ public class Player_Controller : Entity_Controller
         float hp = SerializedData.GetStat(PlayerStats.CURRENT_HP);
         float maxHP = SerializedData.GetStat(PlayerStats.MAX_HP);
         hp = Mathf.Clamp(hp - value, 0f, maxHP);
-
+        SerializedData.UpdateStat(PlayerStats.CURRENT_HP, hp);
         onHealthChange.Invoke(hp, maxHP);
+
+        if (hp <= 0f)
+        {
+            dead = true;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
