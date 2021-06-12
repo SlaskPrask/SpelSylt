@@ -19,12 +19,12 @@ public static class SerializedData
         {
             data = new float[]
             {
-                50f, //Max Speed
+                40f, //Max Speed
                 10f, //Max HP
                 3f, //Size
                 1f, //Fire rate
                 1f, //Absorbtion cooldown
-                70f, //Acceleration
+                60f, //Acceleration
                 10f, //Deceleration
                 10f, //Curren HP
                 .5f, //Invincibility Time

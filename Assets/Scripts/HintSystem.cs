@@ -15,7 +15,7 @@ public class HintSystem : MonoBehaviour
     void Start()
     {
         transform = textBox.gameObject.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(player.transform.position.x + 10, player.transform.position.y - 70);
+        transform.anchoredPosition = new Vector2(player.transform.position.x + 10, player.transform.position.y - 100);
     }
 
     // Update is called once per frame
