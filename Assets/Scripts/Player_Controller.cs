@@ -9,6 +9,7 @@ public class Player_Controller : Entity_Controller
     private float angle;
     private float animationTime;
     public float baseAnimTime = 10;
+    private float velMagnitude;
 
     protected override void AwakeInit()
     {
@@ -24,6 +25,33 @@ public class Player_Controller : Entity_Controller
         body.velocity = Vector2.ClampMagnitude(body.velocity, SerializedData.GetStat(PlayerStats.MAX_SPEED));
     }
 
+    private void Update()
+    {
+        velMagnitude = body.velocity.magnitude;
+        HandleShots();
+    }
+
+    private void HandleShots()
+    {
+        if (shoot.magnitude > .1f)
+        {
+            Vector2 shotDir;
+            if (velMagnitude > .05f)
+            {
+                shotDir = (shoot + body.velocity.normalized * .1f).normalized;
+            }
+            else
+            {
+                shotDir = shoot;
+            }
+
+            List<PowerUp_ExtraShot> shots = SerializedData.GetShots();
+            for (int i = 0; i < shots.Count; i++)
+            {
+                shots[i].Shoot(this, shotDir);
+            }
+        }
+    }
 
     private void CalculateAnimationTime(float mag)
     {
@@ -37,11 +65,15 @@ public class Player_Controller : Entity_Controller
         }
     }
 
-    private void LateUpdate()
+    private void OnShoot(InputValue val)
     {
-        float velMag = body.velocity.magnitude;
+        shoot = val.Get<Vector2>();
+    }
+
+    private void LateUpdate()
+    {     
         Vector2 velocity;
-        if (velMag < 0.05f)
+        if (velMagnitude < 0.05f)
         {
             velocity = Vector2.zero;
         }
@@ -52,7 +84,7 @@ public class Player_Controller : Entity_Controller
             angle = Mathf.LerpAngle(angle, desiredAngle, Time.deltaTime * 10);
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        CalculateAnimationTime(velMag);
+        CalculateAnimationTime(velMagnitude);
         matProps.SetVector("_Velocity", velocity);
         matProps.SetFloat("_AnimationTime", animationTime);
         renderer.SetPropertyBlock(matProps);

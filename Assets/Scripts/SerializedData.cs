@@ -18,15 +18,24 @@ public static class SerializedData
         {
             data = new float[]
             {
-                3f, //Max Speed
+                50f, //Max Speed
                 10f, //Max HP
-                1f, //Size
+                3f, //Size
                 1f, //Fire rate
                 1f, //Absorbtion cooldown
-                25f, //Acceleration
+                70f, //Acceleration
                 10f, //Deceleration
+            },
+            shots = new List<PowerUp_ExtraShot>()
+            {
+                Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>()
             }
         };
+    }
+
+    public static List<PowerUp_ExtraShot> GetShots()
+    {
+        return activeData.shots;
     }
 
     public static void UpdateStat(PlayerStats stat, float value)
@@ -43,6 +52,7 @@ public static class SerializedData
     public struct PlayerData
     {
         public float[] data;
+        public List<PowerUp_ExtraShot> shots;
     }
 }
 
