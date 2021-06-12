@@ -26,17 +26,11 @@ public static class SerializedData
                 70f, //Acceleration
                 10f, //Deceleration
             },
-            shots = new List<PowerUp_ExtraShot>()
-            {
-                Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>()
-            }
+            baseShot = Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>(),
+            powerUps = new List<PowerUp>()
         };
     }
 
-    public static List<PowerUp_ExtraShot> GetShots()
-    {
-        return activeData.shots;
-    }
 
     public static void UpdateStat(PlayerStats stat, float value)
     {
@@ -48,11 +42,47 @@ public static class SerializedData
         return activeData.data[(byte)stat];
     }
 
+    public static List<PowerUp_ExtraShot> GetShots()
+    {
+        List<PowerUp_ExtraShot> shots = new List<PowerUp_ExtraShot>();
+        shots.Add(activeData.baseShot);
+
+        return shots;
+    }
+
+    public static ShotModifiers GetShotModifiers()
+    {
+        ShotModifiers mods = new ShotModifiers()
+        {
+            rateMultiplier = 1,
+            speedMultiplier = 1,
+            sizeMultiplier = 1
+        };
+
+        foreach (PowerUp power in activeData.powerUps)
+        {
+            if (power.type == PowerUpType.SHOT_MODIFIER)
+            {
+                PowerUp_BulletModifier bulletMod = (PowerUp_BulletModifier)power;
+                mods.rateAdder += bulletMod.shotModifiers.rateAdder;
+                mods.sizeAdder += bulletMod.shotModifiers.sizeAdder;
+                mods.speedAdder += bulletMod.shotModifiers.speedAdder;
+                
+                mods.rateMultiplier *= bulletMod.shotModifiers.rateMultiplier;
+                mods.sizeMultiplier *= bulletMod.shotModifiers.sizeMultiplier;
+                mods.speedMultiplier *= bulletMod.shotModifiers.speedMultiplier;
+            }
+        }
+
+        return mods;
+    }
+
     [System.Serializable]
     public struct PlayerData
     {
         public float[] data;
-        public List<PowerUp_ExtraShot> shots;
+        public PowerUp_ExtraShot baseShot;
+        public List<PowerUp> powerUps;
     }
 }
 

@@ -8,6 +8,7 @@ public class PowerUp_Scriptable : ScriptableObject
     public PowerUpType type;
     [SerializeReference]
     public PowerUp power;
+    public Sprite sprite;
 
     public T GetPowerup<T>() where T : PowerUp
     {
@@ -18,7 +19,7 @@ public class PowerUp_Scriptable : ScriptableObject
 [System.Serializable]
 public class PowerUp
 {
-
+    public PowerUpType type;
 }
 
 public enum PowerUpType
