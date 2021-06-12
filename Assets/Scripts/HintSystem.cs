@@ -5,6 +5,7 @@ using TMPro;
 
 public class HintSystem : MonoBehaviour
 {
+    public GameObject hint;
     public GameObject player;
     public Collider2D collider;
     public TextMeshProUGUI textBox;
@@ -14,8 +15,8 @@ public class HintSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform = textBox.gameObject.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(player.transform.position.x + 10, player.transform.position.y - 100);
+        transform = gameObject.GetComponent<RectTransform>();
+        transform.anchoredPosition = new Vector2(hint.transform.position.x, hint.transform.position.y);
     }
 
     // Update is called once per frame
