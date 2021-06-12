@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7412273015871735482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SfX/DeathSound
+  m_EditorClassIdentifier: 
+  Path: event:/SfX/DeathSound
+  guid: f2aad82a46dcb6498ffc24e8a4bfbe60
+  Banks:
+  - {fileID: -4197050948225936153}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 727
 --- !u!114 &-6872779617446766563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,11 +37,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Audio/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637590983464679507
+  lastModified: 637591278038564713
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1118
+    Value: 1214
   Exists: 1
 --- !u!114 &-6629797825334893090
 MonoBehaviour:
@@ -35,7 +58,7 @@ MonoBehaviour:
   Path: event:/SfX/Digest
   guid: 42a2cf073c870a408ef441857b5f6e73
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -58,7 +81,7 @@ MonoBehaviour:
   Path: event:/SfX/Shotsound
   guid: 4a165f5c5d5bbc46b3517a66b49902a1
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -66,6 +89,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 125
+--- !u!114 &-4197050948225936153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637591278038514862
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-2029971242955158164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +122,7 @@ MonoBehaviour:
   Path: event:/SfX/Absorb
   guid: 6f27123f5f357a4ca460ee6a5cbd3a63
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -103,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -6872779617446766563}
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   EditorEvents:
   - {fileID: -6629797825334893090}
   - {fileID: -5582576311089895282}
@@ -112,12 +153,14 @@ MonoBehaviour:
   - {fileID: 6207126647132650063}
   - {fileID: 8114668817775390798}
   - {fileID: 339225680573691689}
+  - {fileID: 1747206463987085154}
+  - {fileID: -7412273015871735482}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   StringsBanks:
   - {fileID: -6872779617446766563}
-  stringsBankWriteTime: 637590983464679507
+  stringsBankWriteTime: 637591278038564713
   cacheVersion: 3
 --- !u!114 &339225680573691689
 MonoBehaviour:
@@ -134,7 +177,7 @@ MonoBehaviour:
   Path: event:/SfX/GoopHurt
   guid: da24cbed396ea549a29133b3653b9ec4
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -159,7 +202,30 @@ MonoBehaviour:
   lastModified: 637590983464609707
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
+--- !u!114 &1747206463987085154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SfX/DeathSound 2
+  m_EditorClassIdentifier: 
+  Path: event:/SfX/DeathSound 2
+  guid: cee9cf82d8332b4a9435bdf974592ac8
+  Banks:
+  - {fileID: -4197050948225936153}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1340
 --- !u!114 &3191688952866706814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +241,7 @@ MonoBehaviour:
   Path: event:/SfX/CyclePowerup
   guid: 6e87ec88912eaf42a60fa66b7049fc6b
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -198,7 +264,7 @@ MonoBehaviour:
   Path: event:/SfX/HitEnemy
   guid: bd0fe687b516f642b904352b604c5d90
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -221,7 +287,7 @@ MonoBehaviour:
   Path: event:/SfX/Menusound
   guid: c9acab4524ad964a81e0405d9cfc4d52
   Banks:
-  - {fileID: 872674374457845097}
+  - {fileID: -4197050948225936153}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
