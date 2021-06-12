@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
@@ -16,7 +17,7 @@ public class Player_Controller : Entity_Controller
     public PowerUpContainer powerupVisuals;
     private float gotoSize;
     private Coroutine sizeRoutine;
-
+    public UnityEvent<float, float> onHealthChange = new UnityEvent<float, float>();
 
     protected override void AwakeInit()
     {
@@ -151,7 +152,15 @@ public class Player_Controller : Entity_Controller
             default:
                 break;
         }
+    }
 
+    public void Damage(float value)
+    {
+        float hp = SerializedData.GetStat(PlayerStats.CURRENT_HP);
+        float maxHP = SerializedData.GetStat(PlayerStats.MAX_HP);
+        hp = Mathf.Clamp(hp - value, 0f, maxHP);
+
+        onHealthChange.Invoke(hp, maxHP);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

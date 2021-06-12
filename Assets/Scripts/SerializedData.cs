@@ -25,6 +25,7 @@ public static class SerializedData
                 1f, //Absorbtion cooldown
                 70f, //Acceleration
                 10f, //Deceleration
+                10f, //Curren HP
             },
             baseShot = Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>(),
             powerUps = new List<PowerUp>()
@@ -48,6 +49,25 @@ public static class SerializedData
         shots.Add(activeData.baseShot);
 
         return shots;
+    }
+
+    public static List<GameObject> GetShotHitInitializers(out bool destroyOnImpact)
+    {
+        List<GameObject> go = new List<GameObject>();
+        int destroy = 0;
+
+        foreach (PowerUp power in activeData.powerUps)
+        {
+            if (power.type == PowerUpType.SHOT_IMPACT_BEHAVIOUR)
+            {
+                PowerUp_BulletImpact bulletImp = (PowerUp_BulletImpact)power;
+                destroy += (bulletImp.destroyOnImpact ? 1 : -1);
+                go.Add(bulletImp.instantiateOnHit);
+            }
+        }
+
+        destroyOnImpact = destroy >= 0;
+        return go.Count == 0 ? null : go;
     }
 
     public static ShotModifiers GetShotModifiers()
@@ -100,5 +120,6 @@ public enum PlayerStats : byte
     FIRE_RATE = 3,
     ABSORB_COOLDOWN = 4,
     ACCELERATION = 5,
-    DECELERATION = 6
+    DECELERATION = 6,
+    CURRENT_HP = 7,
 }

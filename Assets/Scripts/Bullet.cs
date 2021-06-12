@@ -7,9 +7,9 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D body;
     bool destroyOnImpact;
-    GameObject initOnHit;
+    [SerializeField] List<GameObject> initOnHit;
 
-    public void Initialize(Vector2 velocity, bool destOnImpact, GameObject initOnHit, Color color, int layer)
+    public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer)
     {
         gameObject.layer = layer;
         destroyOnImpact = destOnImpact;
@@ -22,7 +22,10 @@ public class Bullet : MonoBehaviour
     {
         if (initOnHit != null)
         {
-            Instantiate(initOnHit, transform.position, Quaternion.identity, null);
+            foreach (GameObject go in initOnHit)
+            {
+                Instantiate(go, transform.position, Quaternion.identity, null);
+            }
         }
 
         if (destroyOnImpact)

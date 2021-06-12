@@ -23,4 +23,4 @@ MonoBehaviour:
       data:
         type: 5
         destroyOnImpact: 1
-        instantiateOnHit: {fileID: 0}
+        instantiateOnHit: {fileID: 1723571397183245837, guid: ba64f216fcbc3da42a960ef8ff7e625b, type: 3}
