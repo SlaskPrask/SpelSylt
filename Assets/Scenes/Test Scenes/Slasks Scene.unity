@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 588166242}
   - component: {fileID: 588166243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,8 @@ GameObject:
   - component: {fileID: 1673678139}
   - component: {fileID: 1673678138}
   - component: {fileID: 1673678140}
-  m_Layer: 0
+  - component: {fileID: 1673678141}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,6 +492,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &1673678141
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673678136}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.25
 --- !u!1001 &7945089157422898220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -546,9 +563,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9100801193844154983, guid: 0873a16ccabf8be449715df3017d79e1, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 3831732259802744252, guid: 8e88d8544e4954d47acae2963216255d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0873a16ccabf8be449715df3017d79e1, type: 3}

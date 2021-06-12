@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector2 vel;
-    public void Initialize(Vector2 velocity, Color color)
+    [SerializeField] Rigidbody2D body;
+    public void Initialize(Vector2 velocity, Color color, string tag)
     {
-        vel = velocity;
-    }
-
-    public void Update()
-    {
-        transform.position += (Vector3)vel;
+        this.tag = tag;
+        body.velocity = velocity;
+        Destroy(gameObject, 2f);
     }
 }
