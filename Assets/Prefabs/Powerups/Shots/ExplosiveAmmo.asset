@@ -10,22 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99503882b6f6215408a616d6be92ef97, type: 3}
-  m_Name: BiggerBullet
+  m_Name: ExplosiveAmmo
   m_EditorClassIdentifier: 
-  type: 1
+  type: 5
   power:
     id: 0
-  sprite: {fileID: 21300000, guid: f18780b20bf23344f9a3b3b2d73cdaea, type: 3}
+  sprite: {fileID: 21300000, guid: 8bd46065db3ab8545adcf2d44d76a719, type: 3}
   references:
     version: 1
     00000000:
-      type: {class: PowerUp_BulletModifier, ns: , asm: Assembly-CSharp}
+      type: {class: PowerUp_BulletImpact, ns: , asm: Assembly-CSharp}
       data:
-        type: 1
-        shotModifiers:
-          sizeAdder: 0
-          sizeMultiplier: 1.5
-          speedAdder: 0
-          speedMultiplier: 1
-          rateAdder: 0
-          rateMultiplier: 1
+        type: 5
+        destroyOnImpact: 1
+        instantiateOnHit: {fileID: 0}

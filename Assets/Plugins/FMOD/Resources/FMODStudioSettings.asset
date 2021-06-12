@@ -16,7 +16,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: 
-  sourceBankPath: C:\Users\Oskar Bladh\Documents\Speldesign\GameJams\GMTK2021\SpelSylt\Assets\Audio
+  sourceBankPath: Assets/Audio
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

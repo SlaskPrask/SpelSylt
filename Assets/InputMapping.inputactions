@@ -23,9 +23,9 @@
                 },
                 {
                     "name": "Absorb",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "d82ea110-a7b2-4a65-a2f1-af9b385150ce",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": ""
                 }

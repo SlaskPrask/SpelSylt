@@ -77,6 +77,12 @@ public static class SerializedData
         return mods;
     }
 
+    public static int AddPowerUp(PowerUp power)
+    {
+        activeData.powerUps.Add(power);
+        return activeData.powerUps.Count - 1;
+    }
+
     [System.Serializable]
     public struct PlayerData
     {
