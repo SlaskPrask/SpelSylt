@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!114 &-8844357084522670924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +48,9 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 420
 --- !u!114 &-7193745147910919390
+=======
+--- !u!114 &-7571155265878466212
+>>>>>>> klas
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,10 +64,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Audio/Desktop/Master.bank
   SubDir: 
+<<<<<<< HEAD
   lastModified: 637590969403351500
   LoadResult: 0
   FileSizes: []
   Exists: 0
+=======
+  lastModified: 637590170223634049
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+>>>>>>> klas
 --- !u!114 &-6728286900725500225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +107,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/Audio/Desktop/Master.strings.bank
   SubDir: 
+<<<<<<< HEAD
   lastModified: 637590969403431329
+=======
+  lastModified: 637590170231671763
+>>>>>>> klas
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -240,6 +255,7 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
+<<<<<<< HEAD
   - {fileID: 8050844963293641319}
   - {fileID: 8680756431542829653}
   EditorEvents:
@@ -256,6 +272,17 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8050844963293641319}
   stringsBankWriteTime: 637591109337803661
+=======
+  - {fileID: -5325666385159085571}
+  - {fileID: -7571155265878466212}
+  EditorEvents: []
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: -7571155265878466212}
+  StringsBanks:
+  - {fileID: -5325666385159085571}
+  stringsBankWriteTime: 637590170231671763
+>>>>>>> klas
   cacheVersion: 3
 --- !u!114 &349226087591803311
 MonoBehaviour:
