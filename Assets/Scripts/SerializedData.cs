@@ -26,15 +26,14 @@ public static class SerializedData
                 25f, //Acceleration
                 10f, //Deceleration
             },
-            shots = new List<Power_Shot>()
+            shots = new List<PowerUp_ExtraShot>()
             {
-                Resources.Load<Power_Shot>("Base Shot")
+                Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>()
             }
-            
         };
     }
 
-    public static List<Power_Shot> GetShots()
+    public static List<PowerUp_ExtraShot> GetShots()
     {
         return activeData.shots;
     }
@@ -53,7 +52,7 @@ public static class SerializedData
     public struct PlayerData
     {
         public float[] data;
-        public List<Power_Shot> shots;
+        public List<PowerUp_ExtraShot> shots;
     }
 }
 

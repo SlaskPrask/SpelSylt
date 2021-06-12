@@ -9,6 +9,7 @@ public class Player_Controller : Entity_Controller
     private float angle;
     private float animationTime;
     public float baseAnimTime = 10;
+    private float velMagnitude;
 
     protected override void AwakeInit()
     {
@@ -26,6 +27,7 @@ public class Player_Controller : Entity_Controller
 
     private void Update()
     {
+        velMagnitude = body.velocity.magnitude;
         HandleShots();
     }
 
@@ -33,17 +35,22 @@ public class Player_Controller : Entity_Controller
     {
         if (shoot.magnitude > .1f)
         {
-            List<Power_Shot> shots = SerializedData.GetShots();
+            Vector2 shotDir;
+            if (velMagnitude > .05f)
+            {
+                shotDir = (shoot + body.velocity.normalized * .1f).normalized;
+            }
+            else
+            {
+                shotDir = shoot;
+            }
+
+            List<PowerUp_ExtraShot> shots = SerializedData.GetShots();
             for (int i = 0; i < shots.Count; i++)
             {
-                shots[i].Shoot(gameObject, shoot);
+                shots[i].Shoot(this, shotDir);
             }
         }
-    }
-
-    protected override void Shoot()
-    {
-
     }
 
     private void CalculateAnimationTime(float mag)
@@ -64,10 +71,9 @@ public class Player_Controller : Entity_Controller
     }
 
     private void LateUpdate()
-    {
-        float velMag = body.velocity.magnitude;
+    {     
         Vector2 velocity;
-        if (velMag < 0.05f)
+        if (velMagnitude < 0.05f)
         {
             velocity = Vector2.zero;
         }
@@ -78,7 +84,7 @@ public class Player_Controller : Entity_Controller
             angle = Mathf.LerpAngle(angle, desiredAngle, Time.deltaTime * 10);
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-        CalculateAnimationTime(velMag);
+        CalculateAnimationTime(velMagnitude);
         matProps.SetVector("_Velocity", velocity);
         matProps.SetFloat("_AnimationTime", animationTime);
         renderer.SetPropertyBlock(matProps);
