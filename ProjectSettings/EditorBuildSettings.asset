@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Quasis Scene.unity
+    guid: 520f815044a1bda4ea60cbbdd2da6df6
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Main Menu.unity
     guid: 723423c8a1bb5a84e8eaa866748a7ddd
