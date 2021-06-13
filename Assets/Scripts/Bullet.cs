@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Bullet : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Bullet : MonoBehaviour
         col = GetComponent<SpriteRenderer>().color = color;
         body.velocity = velocity;
         this.initOnHit = initOnHit;
+        RuntimeManager.PlayOneShotAttached("Event:/SFX/Shotsound", gameObject);
         Destroy(gameObject, 2f);
     }
 

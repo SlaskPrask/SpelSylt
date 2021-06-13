@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using FMODUnity;
 
 public class Player_Controller : Entity_Controller
 {
@@ -76,6 +77,7 @@ public class Player_Controller : Entity_Controller
                 gotoSize += .7f;
                 PowerUp_Object obj = overlappedPowerups[i].GetComponent<PowerUp_Object>();
                 AbsorbPower(obj);
+                RuntimeManager.PlayOneShotAttached("event:/SFX/Absorb", gameObject);
                 onAbsorbedItem.Invoke(obj);
                 Destroy(overlappedPowerups[i]);
                 delete.Push(i);
@@ -180,6 +182,7 @@ public class Player_Controller : Entity_Controller
         if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1)
         {
             //Error noise
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/NoPoop", gameObject);
             return;
         }
         else
@@ -194,6 +197,7 @@ public class Player_Controller : Entity_Controller
                 StopCoroutine(sizeRoutine);
             }
             sizeRoutine = StartCoroutine(UpdateSize());
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/Digest", gameObject);
         }
     }
 
@@ -308,10 +312,12 @@ public class Player_Controller : Entity_Controller
 
         if (hp <= 0f)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/BlobDeath2", gameObject);
             dead = true;
         }
         else if (hp < prevHp)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/GoopHurt", gameObject);
             body.AddForce(knockDir * Mathf.Max(knockback - SerializedData.GetStat(PlayerStats.KNOCKBACK_RESISTANCE), 0f), ForceMode2D.Impulse);
             StartCoroutine(Invincibility());
         }

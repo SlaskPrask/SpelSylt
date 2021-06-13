@@ -5693,6 +5693,29 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3550039694614166468, guid: bc0ca9f79d81f454fb3b476d28a581b5, type: 3}
   m_PrefabInstance: {fileID: 1918349129}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &954531349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954531344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!4 &965903005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2491304155603074394, guid: 202a3356d1870134fb1d61ca0ffe11e6, type: 3}
@@ -8564,13 +8587,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1424475859}
     m_Modifications:
+    - target: {fileID: 786394524, guid: ec2a6d158edd3754cb1975b08811d43b, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5869091234178704099, guid: ec2a6d158edd3754cb1975b08811d43b, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5869091234178704099, guid: ec2a6d158edd3754cb1975b08811d43b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.61
+      value: -6.56
       objectReference: {fileID: 0}
     - target: {fileID: 5869091234178704099, guid: ec2a6d158edd3754cb1975b08811d43b, type: 3}
       propertyPath: m_LocalPosition.y
