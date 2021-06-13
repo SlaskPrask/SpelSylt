@@ -28,7 +28,7 @@ public static class SerializedData
                 10f, //Deceleration
                 10f, //Curren HP
                 .5f, //Invincibility Time
-                20f, //Knockback resistance
+                0f, //Knockback resistance
                 0f, //Selected slot in powerup bar
                 .75f, //Base Damage
             },

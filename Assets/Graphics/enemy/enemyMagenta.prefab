@@ -284,7 +284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 323844899486875899, guid: 472a895f2f649bc4782061645ea0d5fd, type: 3}
+  m_Sprite: {fileID: 260169756906877875, guid: 06d463d5e91526f41b7b9212a0c1b0b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -402,8 +402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 2
-  health: 5
-  knockback: 10
+  health: 4
+  knockback: 3
   shots:
   - {fileID: 11400000, guid: 44634264d3c4c2640a019acb3a627027, type: 2}
   drops: {fileID: 11400000, guid: 56e91580c9add1b47ad8ab99848aef86, type: 2}

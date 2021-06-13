@@ -73,7 +73,7 @@ public class Player_Controller : Entity_Controller
                 if (SerializedData.PowerCount > 9)
                     break;
 
-                gotoSize += .3f;
+                gotoSize += .7f;
                 PowerUp_Object obj = overlappedPowerups[i].GetComponent<PowerUp_Object>();
                 AbsorbPower(obj);
                 onAbsorbedItem.Invoke(obj);
@@ -186,8 +186,9 @@ public class Player_Controller : Entity_Controller
         {
             SerializedData.RemoveSelectedPowerUp();
             powerupVisuals.RemovePowerUp((int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT));
+            Heal(1);
             onDigest.Invoke();
-            gotoSize -= .3f;
+            gotoSize -= .7f;
             if (sizeRoutine != null)
             {
                 StopCoroutine(sizeRoutine);
@@ -266,7 +267,7 @@ public class Player_Controller : Entity_Controller
 
                 Vector2 knockDir = transform.position - collision.transform.position;
 
-                Damage(.5f, 50, knockDir.normalized);
+                Damage(.5f, 10, knockDir.normalized);
                 break;
             default:
                 break;
@@ -293,6 +294,17 @@ public class Player_Controller : Entity_Controller
             body.AddForce(knockDir * Mathf.Max(knockback - SerializedData.GetStat(PlayerStats.KNOCKBACK_RESISTANCE), 0f), ForceMode2D.Impulse);
             StartCoroutine(Invincibility());
         }
+    }
+
+    public void Heal(float value)
+    {
+        float hp = SerializedData.GetStat(PlayerStats.CURRENT_HP);
+        float prevHp = hp;
+        float maxHP = SerializedData.GetStat(PlayerStats.MAX_HP);
+
+        hp = Mathf.Clamp(hp + value, 0, maxHP);
+        SerializedData.UpdateStat(PlayerStats.CURRENT_HP, hp);
+        onHealthChange.Invoke(hp, maxHP);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
