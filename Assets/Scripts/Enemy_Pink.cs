@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class Enemy_Pink : Enemy_Controller
+public class Enemy_Pink : Enemy_Controller, IDamageSource
 {
     private float attackTimer;
     private Transform target;
     private float knockbackTime = .1f;
     private float knockbackTimer;
+    [SerializeField] private float contactDamage = 1f;
 
     protected override void AwakeInit()
     {
@@ -98,7 +99,7 @@ public class Enemy_Pink : Enemy_Controller
         {
             case 7: //player bullet
                 Bullet bullet = collision.GetComponent<Bullet>();
-                health -= bullet.damage;
+                health -= bullet.GetDamage();
 
                 if (health <= 0 && currentState != EnemyState.DEAD)
                 {
@@ -133,4 +134,8 @@ public class Enemy_Pink : Enemy_Controller
         Destroy(gameObject);
     }
 
+    public float GetDamage()
+    {
+        return contactDamage;
+    }
 }

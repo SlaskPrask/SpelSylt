@@ -269,9 +269,14 @@ public class Player_Controller : Entity_Controller
                 if (invincibility > 0f)
                     return;
 
-                Vector2 knockDir = transform.position - collision.transform.position;
+                if (collision.TryGetComponent<IDamageSource>(out IDamageSource dmgSource))
+                {
+                    Vector2 knockDir = transform.position - collision.transform.position;
+                    Damage(dmgSource.GetDamage(), 10, knockDir.normalized);
+                }
+                else
+                    return;
 
-                Damage(.5f, 10, knockDir.normalized);
                 break;
             default:
                 break;
@@ -290,9 +295,13 @@ public class Player_Controller : Entity_Controller
                 if (invincibility > 0f)
                     return;
 
-                Vector2 knockDir = transform.position - collision.transform.position;
-
-                Damage(.5f, 10, knockDir.normalized);
+                if (collision.TryGetComponent<IDamageSource>(out IDamageSource dmgSource))
+                {
+                    Vector2 knockDir = transform.position - collision.transform.position;
+                    Damage(dmgSource.GetDamage(), 10, knockDir.normalized);
+                }
+                else
+                    return;
                 break;
             default:
                 break;
@@ -310,7 +319,7 @@ public class Player_Controller : Entity_Controller
         SerializedData.UpdateStat(PlayerStats.CURRENT_HP, hp);
         onHealthChange.Invoke(hp, maxHP);
 
-        if (hp <= 0f)
+        if (hp <= 0f && !dead)
         {
             RuntimeManager.PlayOneShotAttached("Event:/SFX/BlobDeath2", gameObject);
             dead = true;

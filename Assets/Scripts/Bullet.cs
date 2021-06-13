@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IDamageSource
 {
     [SerializeField] Rigidbody2D body;
     bool destroyOnImpact;
     [SerializeField] List<GameObject> initOnHit;
-    public float damage { get; private set; }
+    private float damage;
     private Color col;
 
     public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer, float dmg)
@@ -46,6 +46,11 @@ public class Bullet : MonoBehaviour
         ps.transform.localScale = transform.localScale;
         var main = ps.main;
         main.startColor = col;
+    }
+
+    public float GetDamage()
+    {
+        return damage;
     }
 }
 
