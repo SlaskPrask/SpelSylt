@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class Player_Controller : Entity_Controller
 {
@@ -344,6 +345,7 @@ public class Player_Controller : Entity_Controller
         {
             RuntimeManager.PlayOneShotAttached("Event:/SFX/BlobDeath2", gameObject);
             dead = true;
+            SceneManager.LoadScene("Lose");
         }
         else if (hp < prevHp)
         {

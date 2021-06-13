@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject powerPrefab;
     public GameObject bulletBreakPrefab;
     public GameObject optionsMenu;
+    public SceneSwitcher sceneSwitcher;
     private bool paused;
     private void Awake()
     {

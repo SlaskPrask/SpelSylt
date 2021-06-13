@@ -24,7 +24,7 @@ public static class SerializedData
         shotsChanged = modChanged = impactChanged = true;
     }
 
-    private static void InitalStats()
+    public static void InitalStats()
     {
         activeData = new PlayerData()
         {
