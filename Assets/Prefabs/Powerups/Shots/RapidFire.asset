@@ -12,11 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99503882b6f6215408a616d6be92ef97, type: 3}
   m_Name: RapidFire
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   power:
     id: 0
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: ddf7bd0bc25c2a94c8e6a21a61d24f73, type: 3}
   references:
     version: 1
     00000000:
-      type: {class: , ns: , asm: }
+      type: {class: PowerUp_BulletModifier, ns: , asm: Assembly-CSharp}
+      data:
+        type: 1
+        shotModifiers:
+          sizeAdder: 0
+          sizeMultiplier: 1
+          speedAdder: 0
+          speedMultiplier: 1
+          rateAdder: 0
+          rateMultiplier: 1.3333334
+          damageAdder: 0
+          damageMultiplier: 1
+          destroyOnContact: 1

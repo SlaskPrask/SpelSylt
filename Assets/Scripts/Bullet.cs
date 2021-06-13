@@ -32,7 +32,8 @@ public class Bullet : MonoBehaviour, IDamageSource
         {
             foreach (GameObject go in initOnHit)
             {
-                Instantiate(go, transform.position, Quaternion.identity, null);
+                GameObject temp = Instantiate(go, transform.position, Quaternion.identity, null);
+                temp.transform.localScale = transform.localScale;
             }
         }
 
