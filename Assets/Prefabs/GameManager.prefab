@@ -49,6 +49,7 @@ MonoBehaviour:
   powerPrefab: {fileID: 7105876497679227573, guid: d9edbd514bf999d4aa78456580116d4e, type: 3}
   bulletBreakPrefab: {fileID: 2604174207352948287, guid: 0c2e613ee28f97d4f9a53796fae1ead2, type: 3}
   optionsMenu: {fileID: 2896163411550740608}
+  sceneSwitcher: {fileID: 8863707587406098128}
 --- !u!114 &8863707587406098128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &5163193179682862110
 MonoBehaviour:

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
-using System.Net.Http.Headers;
+using UnityEngine.SceneManagement;
 
 public class Enemy_Boss : Enemy_Controller, IDamageSource
 {
@@ -198,6 +198,7 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
         }
         if (drops != null)
             drops.CalculateDrop().Instantiate(transform.position);
+        SceneManager.LoadScene("Win");
         Destroy(gameObject);
     }
 
