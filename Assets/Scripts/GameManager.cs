@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         Initialize();
     }
 
+    private void Update()
+    {
+
+    }
+
     public static void PauseGame()
     {
         if (instance.paused == false)

@@ -104,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 6.5
 --- !u!114 &1074885533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 8.5
 --- !u!114 &1437166261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +404,8 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   health: 4
   knockback: 3
+  shotStart: 0.25
   shots:
   - {fileID: 11400000, guid: 44634264d3c4c2640a019acb3a627027, type: 2}
   drops: {fileID: 11400000, guid: 56e91580c9add1b47ad8ab99848aef86, type: 2}
+  contactDamage: 1

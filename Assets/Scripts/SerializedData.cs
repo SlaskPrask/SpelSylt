@@ -35,7 +35,7 @@ public static class SerializedData
                 3f, //Size
                 1f, //Fire rate
                 1f, //Absorbtion cooldown
-                60f, //Acceleration
+                50f, //Acceleration
                 10f, //Deceleration
                 10f, //Curren HP
                 .5f, //Invincibility Time

@@ -25,7 +25,7 @@ public class Player_Controller : Entity_Controller
     [HideInInspector] public UnityEvent<int> onNumberInput = new UnityEvent<int>();
     [HideInInspector] public UnityEvent onDigest = new UnityEvent();
     
-    private bool dead;
+    public bool dead;
     private float invincibility;
     
     protected override void AwakeInit()
@@ -141,6 +141,7 @@ public class Player_Controller : Entity_Controller
     {
         if (dead)
         {
+            
             return;
         }
 
