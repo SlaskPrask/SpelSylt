@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour, IDamageSource
     [SerializeField] List<GameObject> initOnHit;
     private float damage;
     private Color col;
+    float audioCooldown = .1f;
+    float lastTimePlayed = 0f;
 
     public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer, float dmg)
     {
@@ -30,14 +32,26 @@ public class Bullet : MonoBehaviour, IDamageSource
         {
             foreach (GameObject go in initOnHit)
             {
-                Instantiate(go, transform.position, Quaternion.identity, null);
+                GameObject temp = Instantiate(go, transform.position, Quaternion.identity, null);
+                temp.transform.localScale = transform.localScale;
             }
         }
 
-        if (destroyOnImpact)
+        if (destroyOnImpact || collision.gameObject.layer == 0)
         {
-            RuntimeManager.PlayOneShotAttached("Event:/SFX/HitEnemy", gameObject);
+            if (collision.gameObject.layer != 6)
+            {
+                RuntimeManager.PlayOneShotAttached("Event:/SFX/HitEnemy", gameObject);
+            }
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.layer != 6)
+        {
+            if (lastTimePlayed <= Time.time - audioCooldown)
+            {
+                lastTimePlayed = Time.time;
+                RuntimeManager.PlayOneShotAttached("Event:/SFX/HitEnemy", gameObject);
+            }
         }
     }
 
@@ -66,6 +80,7 @@ public struct ShotModifiers
     public float rateMultiplier;
     public float damageAdder;
     public float damageMultiplier;
+    public bool destroyOnContact;
 }
 
 [Flags]

@@ -10,22 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99503882b6f6215408a616d6be92ef97, type: 3}
-  m_Name: PinkBullet
+  m_Name: SpeedUp
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   power:
     id: 0
-  sprite: {fileID: 21300000, guid: e5246b0f52102f048a8b7ff2447e4dbc, type: 3}
+  sprite: {fileID: 21300000, guid: 4005f4c946aa7e149bb71a4cbb7051fe, type: 3}
   references:
     version: 1
     00000000:
-      type: {class: PowerUp_ExtraShot, ns: , asm: Assembly-CSharp}
+      type: {class: PowerUp_Stat, ns: , asm: Assembly-CSharp}
       data:
-        type: 0
-        baseFireRate: 2
-        baseFireSpeed: 4
-        baseSize: 1
-        baseDamageAdder: 2
-        baseDamageMultiplier: 1
-        shotDirections: 1
-        color: {r: 0.6862745, g: 0, b: 0.38431376, a: 1}
+        type: 2
+        maxHP: 0
+        heal: 0
+        size: 0
+        fireRate: 0
+        moveSpeed: 20
+        knockback: 0
+        acceleration: 0
+        decceleration: 0
+        knockbackResistance: 0
+        invincibilityTime: 0
+        damage: 0

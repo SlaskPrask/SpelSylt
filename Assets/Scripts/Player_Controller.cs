@@ -25,7 +25,7 @@ public class Player_Controller : Entity_Controller
     [HideInInspector] public UnityEvent<int> onNumberInput = new UnityEvent<int>();
     [HideInInspector] public UnityEvent onDigest = new UnityEvent();
     
-    private bool dead;
+    public bool dead;
     private float invincibility;
     
     protected override void AwakeInit()
@@ -71,7 +71,7 @@ public class Player_Controller : Entity_Controller
             Stack<byte> delete = new Stack<byte>();
             for (byte i = 0; i < overlappedPowerups.Count; i++)
             {
-                if (SerializedData.PowerCount > 9)
+                if (SerializedData.PowerCount >= 9)
                     break;
 
                 gotoSize += .7f;
@@ -141,6 +141,7 @@ public class Player_Controller : Entity_Controller
     {
         if (dead)
         {
+            
             return;
         }
 
@@ -182,7 +183,7 @@ public class Player_Controller : Entity_Controller
         if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1)
         {
             //Error noise
-            RuntimeManager.PlayOneShotAttached("Event:/SFX/NoPoop", gameObject);
+            RuntimeManager.PlayOneShot("Event:/SFX/NoPoop");
             return;
         }
         else
@@ -250,6 +251,11 @@ public class Player_Controller : Entity_Controller
     public void On_9(InputValue val)
     {
         onNumberInput.Invoke(8);
+    }
+
+    public void OnPause(InputValue val)
+    {
+        GameManager.PauseGame();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

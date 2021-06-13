@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156f0d8a851c9ed4d90ff620e0df5a31, type: 3}
   m_Name: GreenTable
   m_EditorClassIdentifier: 
-  totalDropChance: 10
+  totalDropChance: 25
   dropTable:
-  - powerUp: {fileID: 11400000, guid: d7533cfaef77da44486d820616254522, type: 2}
-    dropChance: 2
+  - powerUp: {fileID: 11400000, guid: fcff9c7d0f188ba47aca990771fb49dd, type: 2}
+    dropChance: 9
   - powerUp: {fileID: 11400000, guid: 58000d1fecbfd3147a455faf594ed9a7, type: 2}
     dropChance: 4
   - powerUp: {fileID: 11400000, guid: e66347ba25250a64f97c077aed222250, type: 2}
+    dropChance: 4
+  - powerUp: {fileID: 11400000, guid: 26ce46e9235c6c24cbf498a6b8177906, type: 2}
+    dropChance: 4
+  - powerUp: {fileID: 11400000, guid: 3bcea93aa2ee2a641a37d195e31d6205, type: 2}
     dropChance: 4
