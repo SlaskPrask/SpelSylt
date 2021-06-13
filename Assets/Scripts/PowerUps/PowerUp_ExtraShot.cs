@@ -68,7 +68,12 @@ public class PowerUp_ExtraShot : PowerUp
                 Bullet bullet = UnityEngine.Object.Instantiate(GameManager.instance.bulletPrefab, (Vector2)shooter.transform.position + shotDir * dist, Quaternion.identity).GetComponent<Bullet>();
                 bullet.transform.localScale = Vector3.one * size;
 
-                bullet.Initialize(shotDir * speed, (destroy && mods.destroyOnContact), initOnHit, color, layer, dmg);
+                if (!mods.destroyOnContact)
+                {
+                    destroy = false;
+                }
+                        
+                bullet.Initialize(shotDir * speed, destroy, initOnHit, color, layer, dmg);
             }
         }
         if (!ignoreFireRate)

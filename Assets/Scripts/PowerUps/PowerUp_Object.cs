@@ -10,7 +10,10 @@ public class PowerUp_Object : MonoBehaviour
     public void Initialize(PowerUp_Scriptable powerup)
     {
         this.powerup = powerup;
-        sprite.sprite = powerup.sprite;
+        if (sprite != null)
+        {
+            sprite.sprite = powerup.sprite;
+        }
     }
 
     private void OnValidate()
