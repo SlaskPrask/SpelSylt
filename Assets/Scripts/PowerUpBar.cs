@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PowerUpBar : MonoBehaviour
 {
@@ -88,6 +89,7 @@ public class PowerUpBar : MonoBehaviour
         powerSlots[(int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT)].SetFrame(stdColor, stdFrame);
         powerSlots[goTo].SetFrame(selectionColor, selectionFrame);
         SerializedData.UpdateStat(PlayerStats.SELECTED_SLOT, goTo);
+        RuntimeManager.PlayOneShot("Editor:/SFX/CyclePowerup 2");
     }
 
     private void NextSlot()
