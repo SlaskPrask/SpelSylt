@@ -180,7 +180,7 @@ public class Player_Controller : Entity_Controller
         if (powers == 0)
             return;
 
-        if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1)
+        if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1 || SerializedData.SelectedPowerupType() == PowerUpType.KEY_ITEM)
         {
             //Error noise
             RuntimeManager.PlayOneShot("Event:/SFX/NoPoop");
