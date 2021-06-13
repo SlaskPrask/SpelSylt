@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using System.Net.Http.Headers;
 
 public class Enemy_Boss : Enemy_Controller, IDamageSource
 {
@@ -11,11 +12,31 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
     private float knockbackTime = .1f;
     private float knockbackTimer;
     [SerializeField] private float huntSpeed = 5;
+    [SerializeField] private float chargeSpeed = 10;
     private float targetTime = 0f;
     [SerializeField] private float minPatrol = 1f;
     [SerializeField] private float maxPatrol = 6f;
     [SerializeField] private BoxCollider2D playerTrigger;
     [SerializeField] private float contactDamage = 2f;
+
+    [SerializeField] private float chargeTime = 1f;
+    private float chargeTimer;
+    [SerializeField] private float timeBetweenShots;
+    private float shotTimer;
+
+
+    private float switchPatternTime = 0;
+    [SerializeField]private float minTime = 5;
+    [SerializeField]private float maxTime = 10;
+
+    private enum AttackPattern
+    {
+        HUNT = 0,
+        CHARGE = 1,
+        SHOTS = 2
+    }
+
+    private AttackPattern pattern;
 
     protected override void AwakeInit()
     {
@@ -25,6 +46,7 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
         knockbackTimer = 0;
         home = transform.position;
         playerTrigger.transform.parent = null;
+        pattern = AttackPattern.HUNT;
     }
 
     void Update()
@@ -33,8 +55,7 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
             knockbackTimer -= Time.deltaTime;
         switch (currentState)
         {
-            case EnemyState.PATROLLING:
-                Patrolling();
+            case EnemyState.IDLE:
                 break;
             case EnemyState.HUNTING:
                 HuntTarget();
@@ -50,13 +71,71 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
 
     private void HuntTarget()
     {
-        if (knockbackTimer <= 0)
-            body.velocity = ((Vector2)(target.position - transform.position)).normalized * huntSpeed;
+        if (switchPatternTime > 0)
+            switchPatternTime -= Time.deltaTime;
+        else
+            GetNewPattern();
+
+        switch (pattern)
+        {
+            case AttackPattern.HUNT:
+                if (knockbackTimer <= 0)
+                    body.velocity = ((Vector2)(target.position - transform.position)).normalized * huntSpeed;
+                break;
+            case AttackPattern.CHARGE:
+                if (chargeTimer >= 0)
+                {
+                    chargeTimer -= Time.deltaTime;
+                    if (knockbackTimer <= 0)
+                    {
+                        body.velocity = Vector2.zero;
+                    }
+                    if (chargeTime < 0f)
+                    {
+                        body.velocity = Vector2.zero;
+                        body.AddForce(((Vector2)(target.position - transform.position)).normalized * chargeSpeed, ForceMode2D.Impulse);
+                    }
+                }
+                else
+                {
+                    if (body.velocity.magnitude <= .5f)
+                        chargeTimer = chargeTime;
+                }  
+                break;
+            case AttackPattern.SHOTS:
+                if (knockbackTimer <= 0)
+                    body.velocity = Vector2.zero;
+
+                if (shotTimer >= 0f)
+                {
+                    shotTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    foreach (PowerUp_Scriptable item in shots)
+                    {
+                        if (item.type == PowerUpType.EXTRA_SHOT)
+                        {
+                            item.GetPowerup<PowerUp_ExtraShot>().Shoot(this, ((Vector2)(target.position - transform.position)).normalized, true);
+                        }
+                    }
+                    shotTimer = timeBetweenShots;
+                }
+
+                break;
+
+            default:
+                break;
+        }
+
+        
     }
 
-    private void Patrolling()
+    private void GetNewPattern()
     {
-
+        switchPatternTime = Random.Range(minTime, maxTime);
+        pattern = (AttackPattern)Random.Range(0, 3);
+        chargeTimer = chargeTime;
     }
 
     public void EnteredTriggerRange(Collider2D col)
