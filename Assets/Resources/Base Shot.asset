@@ -15,13 +15,17 @@ MonoBehaviour:
   type: 0
   power:
     id: 0
+  sprite: {fileID: 0}
   references:
     version: 1
     00000000:
       type: {class: PowerUp_ExtraShot, ns: , asm: Assembly-CSharp}
       data:
+        type: 0
         baseFireRate: 2
         baseFireSpeed: 4
         baseSize: 0.75
+        baseDamageAdder: 0
+        baseDamageMultiplier: 1
         shotDirections: 1
         color: {r: 0.3529412, g: 0.8078432, b: 1, a: 1}

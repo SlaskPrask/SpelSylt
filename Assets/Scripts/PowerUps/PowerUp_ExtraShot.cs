@@ -32,7 +32,7 @@ public class PowerUp_ExtraShot : PowerUp
             initOnHit = SerializedData.GetShotHitInitializers(out destroy);
             layer = 7;
             baseDmg = SerializedData.GetStat(PlayerStats.DAMAGE);
-            dist = SerializedData.GetStat(PlayerStats.SIZE) * .35f;
+            dist = SerializedData.GetStat(PlayerStats.SIZE) * .15f;
         }
         else
         {
