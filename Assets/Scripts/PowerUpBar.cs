@@ -89,7 +89,8 @@ public class PowerUpBar : MonoBehaviour
         powerSlots[(int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT)].SetFrame(stdColor, stdFrame);
         powerSlots[goTo].SetFrame(selectionColor, selectionFrame);
         SerializedData.UpdateStat(PlayerStats.SELECTED_SLOT, goTo);
-        RuntimeManager.PlayOneShot("Editor:/SFX/CyclePowerup 2");
+        //No work
+        RuntimeManager.PlayOneShot("Editor:/SFX/CyclePowerupReal");
     }
 
     private void NextSlot()

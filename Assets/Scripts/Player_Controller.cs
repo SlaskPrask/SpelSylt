@@ -291,10 +291,12 @@ public class Player_Controller : Entity_Controller
 
         if (hp <= 0f)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/BlobDeath2", gameObject);
             dead = true;
         }
         else if (hp < prevHp)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/GoopHurt", gameObject);
             body.AddForce(knockDir * Mathf.Max(knockback - SerializedData.GetStat(PlayerStats.KNOCKBACK_RESISTANCE), 0f), ForceMode2D.Impulse);
             StartCoroutine(Invincibility());
         }
