@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
                 collision.gameObject.GetComponent<Player_Controller>().ForceDigest(index);
                 GetComponentInChildren<SpriteRenderer>(true).sprite = onOpen;
                 Destroy(GetComponent<BoxCollider2D>());
-                RuntimeManager.PlayOneShotAttached("event:/SfX/WetExplosion", gameObject);
+                RuntimeManager.PlayOneShotAttached("event:/SfX/Door", gameObject);
                 Destroy(this);
             }
         }
