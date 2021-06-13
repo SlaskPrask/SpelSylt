@@ -186,20 +186,10 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
 
     private IEnumerator Die()
     {
-        anim.SetTrigger("Death");
-        Destroy(GetComponent<CircleCollider2D>());
-        renderer.sortingOrder = 8;
-        body.isKinematic = true;
-        Destroy(playerTrigger.gameObject);
+        yield return null;
         RuntimeManager.PlayOneShotAttached("Event:/SFX/DeathSoundBest", gameObject);
-        while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Finished"))
-        {
-            yield return null;
-        }
-        if (drops != null)
-            drops.CalculateDrop().Instantiate(transform.position);
+
         SceneManager.LoadScene("Win");
-        Destroy(gameObject);
     }
 
     public float GetDamage()
