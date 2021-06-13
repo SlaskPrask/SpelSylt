@@ -60,6 +60,14 @@ public static class SerializedData
         List<PowerUp_ExtraShot> shots = new List<PowerUp_ExtraShot>();
         shots.Add(activeData.baseShot);
 
+        foreach (PowerUp power in activeData.powerUps)
+        {
+            if (power.type == PowerUpType.EXTRA_SHOT)
+            {
+                shots.Add((PowerUp_ExtraShot)power);
+            }
+        }
+
         return shots;
     }
 

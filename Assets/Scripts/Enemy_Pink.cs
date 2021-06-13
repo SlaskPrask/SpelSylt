@@ -13,6 +13,7 @@ public class Enemy_Pink : Enemy_Controller, IDamageSource
 
     protected override void AwakeInit()
     {
+        body.constraints = RigidbodyConstraints2D.FreezeRotation;
         currentState = EnemyState.IDLE;
         attackTimer = timeBetweenAttacks;
         anim = GetComponent<Animator>();
@@ -27,6 +28,7 @@ public class Enemy_Pink : Enemy_Controller, IDamageSource
         switch (currentState)
         {
             case EnemyState.IDLE:
+                body.velocity = Vector2.zero;
                 break;
             case EnemyState.MIANDERING:
                 Miander();
