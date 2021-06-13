@@ -11,8 +11,9 @@ public class Door : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            if (SerializedData.HasKey(KeyItemType.KEY))
+            if (SerializedData.HasKey(KeyItemType.KEY, out int index))
             {
+                collision.gameObject.GetComponent<Player_Controller>().ForceDigest(index);
                 GetComponentInChildren<SpriteRenderer>(true).sprite = onOpen;
                 Destroy(GetComponent<BoxCollider2D>());
                 RuntimeManager.PlayOneShotAttached("event:/SfX/WetExplosion", gameObject);

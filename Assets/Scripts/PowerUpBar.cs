@@ -45,10 +45,8 @@ public class PowerUpBar : MonoBehaviour
         pc.onDigest.RemoveListener(DestroyItem);
     }
 
-    private void DestroyItem()
+    private void DestroyItem(int selected)
     {
-        int selected = (int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT);
-
         //move all items back after the selected one,
         //if there isn't an item next, dont.
         for (int i = selected; i < 8; i++)
@@ -57,9 +55,19 @@ public class PowerUpBar : MonoBehaviour
         }
         powerSlots[8].ClearData();
 
-        if (!powerSlots[selected].hasItem)
+        int sel = selected;
+        while (sel > -1 && !powerSlots[sel].hasItem)
         {
-            SwitchPowerSlot(selected - 1);
+            sel--;
+        }
+        if (sel > -1)
+        {
+            SwitchPowerSlot(sel);
+        }
+        else
+        {
+            powerSlots[sel].SetFrame(stdColor, stdFrame);
+            powerSlots[0].SetFrame(stdColor, stdFrame);
         }
     }
 

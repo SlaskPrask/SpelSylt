@@ -23,7 +23,7 @@ public class Player_Controller : Entity_Controller
     [HideInInspector] public UnityEvent<PowerUp_Object> onAbsorbedItem = new UnityEvent<PowerUp_Object>();
     [HideInInspector] public UnityEvent onNext = new UnityEvent();
     [HideInInspector] public UnityEvent<int> onNumberInput = new UnityEvent<int>();
-    [HideInInspector] public UnityEvent onDigest = new UnityEvent();
+    [HideInInspector] public UnityEvent<int> onDigest = new UnityEvent<int>();
     
     private bool dead;
     private float invincibility;
@@ -173,6 +173,21 @@ public class Player_Controller : Entity_Controller
         isAbsorbing = val.Get<float>() > .5f;
     }
 
+    public void ForceDigest(int index)
+    {
+        SerializedData.RemovePowerUp(index);
+        powerupVisuals.RemovePowerUp(index);
+        Heal(1);
+        onDigest.Invoke(index);
+        gotoSize -= .7f;
+        if (sizeRoutine != null)
+        {
+            StopCoroutine(sizeRoutine);
+        }
+        sizeRoutine = StartCoroutine(UpdateSize());
+        RuntimeManager.PlayOneShotAttached("Event:/SFX/Digest", gameObject);
+    }
+
     public void OnDigest(InputValue val)
     {
         int powers = SerializedData.PowerCount;
@@ -190,7 +205,7 @@ public class Player_Controller : Entity_Controller
             SerializedData.RemoveSelectedPowerUp();
             powerupVisuals.RemovePowerUp((int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT));
             Heal(1);
-            onDigest.Invoke();
+            onDigest.Invoke((int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT));
             gotoSize -= .7f;
             if (sizeRoutine != null)
             {
