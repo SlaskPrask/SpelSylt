@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Enemy_Green : Enemy_Controller
 {
@@ -81,6 +82,7 @@ public class Enemy_Green : Enemy_Controller
     {
         if (currentState == EnemyState.PATROLLING)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/SpookyActivate", gameObject);
             currentState = EnemyState.HUNTING;
         }
         target = col.transform;
@@ -138,6 +140,7 @@ public class Enemy_Green : Enemy_Controller
         renderer.sortingOrder = 8;
         body.isKinematic = true;
         Destroy(playerTrigger.gameObject);
+        RuntimeManager.PlayOneShotAttached("Event:/SFX/DeathSoundBest", gameObject);
         while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Finished"))
         {
             yield return null;
