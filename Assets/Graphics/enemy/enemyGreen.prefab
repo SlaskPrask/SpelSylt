@@ -253,11 +253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 2
-  health: 5
-  knockback: 10
+  health: 3
+  knockback: 3
   shotStart: 0.25
   shots: []
-  drops: {fileID: 0}
+  drops: {fileID: 11400000, guid: 0f0203f2670b4bf4da834c4100a038b6, type: 2}
   patrolRadius: 10
   patrolSpeed: 1.5
   huntSpeed: 2.5
