@@ -25,6 +25,10 @@ public class PowerUpEditor : Editor
                 power.managedReferenceValue = new PowerUp_ExtraShot();
                 break;
             case PowerUpType.SHOT_MODIFIER:
+                power.managedReferenceValue = new PowerUp_BulletModifier();
+                break;
+            case PowerUpType.SHOT_IMPACT_BEHAVIOUR:
+                power.managedReferenceValue = new PowerUp_BulletImpact();
                 break;
             case PowerUpType.STAT_MODIFIER:
                 break;
@@ -33,6 +37,7 @@ public class PowerUpEditor : Editor
             case PowerUpType.FAMILIAR:
                 break;
         }
+        power.FindPropertyRelative("type").intValue = serializedObject.FindProperty("type").intValue;
     }
 
     public override void OnInspectorGUI()
@@ -54,10 +59,10 @@ public class PowerUpEditor : Editor
         }
         iterator = serializedObject.FindProperty("power");
         iterator.Next(true);
-        do
+        while (iterator.Next(false))
         {
             EditorGUILayout.PropertyField(iterator);
-        } while (iterator.Next(false));
+        } 
 
         serializedObject.ApplyModifiedProperties();
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,54 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] Rigidbody2D body;
-    public void Initialize(Vector2 velocity, Color color, string tag)
+    bool destroyOnImpact;
+    [SerializeField] List<GameObject> initOnHit;
+    public float damage { get; private set; }
+
+    public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer, float dmg)
     {
-        this.tag = tag;
+        damage = dmg;
+        gameObject.layer = layer;
+        destroyOnImpact = destOnImpact;
+        GetComponent<SpriteRenderer>().color = color;
         body.velocity = velocity;
+        this.initOnHit = initOnHit;
         Destroy(gameObject, 2f);
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (initOnHit != null)
+        {
+            foreach (GameObject go in initOnHit)
+            {
+                Instantiate(go, transform.position, Quaternion.identity, null);
+            }
+        }
+
+        if (destroyOnImpact)
+        {
+            Destroy(gameObject);
+        }
+    }
+}
+
+[System.Serializable]
+public struct ShotModifiers
+{
+    public float sizeAdder;
+    public float sizeMultiplier;
+    public float speedAdder;
+    public float speedMultiplier;
+    public float rateAdder;
+    public float rateMultiplier;
+    public float damageAdder;
+    public float damageMultiplier;
+}
+
+[Flags]
+public enum ImpactBehaviour : byte
+{
+    DESTROY = 1, //if not set, pass through
+    EXPLODE = 2
 }
