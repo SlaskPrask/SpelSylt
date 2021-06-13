@@ -39,10 +39,13 @@ public class Bullet : MonoBehaviour, IDamageSource
 
         if (destroyOnImpact || collision.gameObject.layer == 0)
         {
-            RuntimeManager.PlayOneShotAttached("Event:/SFX/HitEnemy", gameObject);
+            if (collision.gameObject.layer != 6)
+            {
+                RuntimeManager.PlayOneShotAttached("Event:/SFX/HitEnemy", gameObject);
+            }
             Destroy(gameObject);
         }
-        else
+        else if (collision.gameObject.layer != 6)
         {
             if (lastTimePlayed <= Time.time - audioCooldown)
             {

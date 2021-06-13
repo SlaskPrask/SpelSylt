@@ -63,8 +63,8 @@ MonoBehaviour:
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Enemy_Green, Assembly-CSharp
+      - m_Target: {fileID: 2707851128090028827}
+        m_TargetAssemblyTypeName: Enemy_Boss, Assembly-CSharp
         m_MethodName: EnteredTriggerRange
         m_Mode: 0
         m_Arguments:
@@ -78,8 +78,8 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Enemy_Green, Assembly-CSharp
+      - m_Target: {fileID: 2707851128090028827}
+        m_TargetAssemblyTypeName: Enemy_Boss, Assembly-CSharp
         m_MethodName: ExitedTriggerRange
         m_Mode: 0
         m_Arguments:
@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 1103402713723294236}
   - component: {fileID: 1103402713723294227}
   - component: {fileID: 2707851128090028827}
+  - component: {fileID: 6858520593114173227}
+  - component: {fileID: 4203606672608757682}
   m_Layer: 10
   m_Name: enemyBoss
   m_TagString: Untagged
@@ -157,10 +159,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 2
-  health: 5
-  knockback: 10
+  health: 20
+  knockback: 2
   shotStart: 0.25
-  shots: []
+  shots:
+  - {fileID: 11400000, guid: 3c9f39684ab81be4caaa7904a5ce3f7f, type: 2}
   drops: {fileID: 0}
   patrolRadius: 10
   patrolSpeed: 3
@@ -169,6 +172,43 @@ MonoBehaviour:
   maxPatrol: 6
   playerTrigger: {fileID: 2510424918553949060}
   contactDamage: 2
+--- !u!50 &6858520593114173227
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103402713723294226}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &4203606672608757682
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103402713723294226}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12, y: 0.14}
+  serializedVersion: 2
+  m_Radius: 1.28
 --- !u!1 &1103402714928875416
 GameObject:
   m_ObjectHideFlags: 0

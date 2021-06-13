@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156f0d8a851c9ed4d90ff620e0df5a31, type: 3}
   m_Name: PinkTable
   m_EditorClassIdentifier: 
-  totalDropChance: 10
+  totalDropChance: 25
   dropTable:
   - powerUp: {fileID: 11400000, guid: d7533cfaef77da44486d820616254522, type: 2}
-    dropChance: 2
-  - powerUp: {fileID: 11400000, guid: 58000d1fecbfd3147a455faf594ed9a7, type: 2}
+    dropChance: 9
+  - powerUp: {fileID: 11400000, guid: 79f80181f658a5049855bf158d04105c, type: 2}
     dropChance: 4
-  - powerUp: {fileID: 11400000, guid: e66347ba25250a64f97c077aed222250, type: 2}
+  - powerUp: {fileID: 11400000, guid: 4d7301f7b2d91ec4e80454c28bb9628e, type: 2}
+    dropChance: 4
+  - powerUp: {fileID: 11400000, guid: c9214f48fbe338f4a945350e3e22db33, type: 2}
+    dropChance: 4
+  - powerUp: {fileID: 11400000, guid: e060f7d90313e9b418d6500929d16bb5, type: 2}
     dropChance: 4

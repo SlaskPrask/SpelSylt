@@ -264,6 +264,7 @@ MonoBehaviour:
   minPatrol: 1
   maxPatrol: 6
   playerTrigger: {fileID: 276892357}
+  contactDamage: 2
 --- !u!1 &5648346891892693451
 GameObject:
   m_ObjectHideFlags: 0
