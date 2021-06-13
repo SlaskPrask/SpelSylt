@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{f6212851-af6c-4e4b-bcc8-54b33b26ce58}">
+		<property name="assetPath">
+			<value>MyBlobHurts_pad.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>48.461541950113379</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a761c8d2-3111-4958-845a-a7b5b80b01ad}</destination>
+		</relationship>
+	</object>
+</objects>
