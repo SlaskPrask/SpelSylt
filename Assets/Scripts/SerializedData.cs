@@ -140,6 +140,32 @@ public static class SerializedData
         return impactCache;
     }
 
+    public static bool HasKey(KeyItemType type)
+    {
+        foreach (PowerUp power in activeData.powerUps)
+        {
+            if (power.type == PowerUpType.KEY_ITEM)
+            {
+                PowerUp_KeyItem item = (PowerUp_KeyItem)power;
+                if (type == item.itemType)
+                {
+                    return true;
+                }
+
+            }
+        }
+        return false;
+    }
+
+    public static PowerUpType SelectedPowerupType()
+    {
+        int sel = (int)activeData.data[(int)PlayerStats.SELECTED_SLOT];
+        if (sel < PowerCount)
+            return activeData.powerUps[sel].type;
+        else
+            return PowerUpType.EXTRA_SHOT;
+    }
+
     public static ShotModifiers GetShotModifiers()
     {
         if (modChanged)
@@ -150,6 +176,7 @@ public static class SerializedData
                 speedMultiplier = 1,
                 sizeMultiplier = 1,
                 damageMultiplier = 1,
+                destroyOnContact = true,
             };
 
             foreach (PowerUp power in activeData.powerUps)

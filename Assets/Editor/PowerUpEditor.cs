@@ -33,6 +33,9 @@ public class PowerUpEditor : Editor
             case PowerUpType.STAT_MODIFIER:
                 power.managedReferenceValue = new PowerUp_Stat();
                 break;
+            case PowerUpType.KEY_ITEM:
+                power.managedReferenceValue = new PowerUp_KeyItem();
+                break;
             case PowerUpType.ELEMENTAL_TYPING:
                 break;
             case PowerUpType.FAMILIAR:
