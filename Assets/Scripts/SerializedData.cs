@@ -8,10 +8,20 @@ public static class SerializedData
     public static bool gamePause;
 
     public static int PowerCount { get => activeData.powerUps.Count; }
+    private static bool shotsChanged;
+    private static bool modChanged;
+    private static bool impactChanged;
+
+    //Cache stuff
+    private static List<PowerUp_ExtraShot> shotsCache;
+    private static ShotModifiers modCache;
+    private static List<GameObject> impactCache;
+    private static bool destroyCache;
 
     static SerializedData()
     {
         InitalStats();
+        shotsChanged = modChanged = impactChanged = true;
     }
 
     private static void InitalStats()
@@ -58,77 +68,127 @@ public static class SerializedData
 
     public static List<PowerUp_ExtraShot> GetShots()
     {
-        List<PowerUp_ExtraShot> shots = new List<PowerUp_ExtraShot>();
-        shots.Add(activeData.baseShot);
-
-        foreach (PowerUp power in activeData.powerUps)
+        if (shotsChanged)
         {
-            if (power.type == PowerUpType.EXTRA_SHOT)
+            List<PowerUp_ExtraShot> shots = new List<PowerUp_ExtraShot>();
+            shots.Add(activeData.baseShot);
+
+            foreach (PowerUp power in activeData.powerUps)
             {
-                shots.Add((PowerUp_ExtraShot)power);
+                if (power.type == PowerUpType.EXTRA_SHOT)
+                {
+                    shots.Add((PowerUp_ExtraShot)power);
+                }
             }
+
+            shotsCache = shots;
+            shotsChanged = false;
         }
 
-        return shots;
+        return shotsCache;
+    }
+
+    private static void ModifyStats(PowerUp_Stat power, bool remove)
+    {
+        if (remove)
+        {
+            activeData.data[(int)PlayerStats.ACCELERATION] -= power.moveSpeed;
+        }
+        else
+        {
+            activeData.data[(int)PlayerStats.ACCELERATION] += power.moveSpeed;
+        }
     }
 
     public static void RemoveSelectedPowerUp()
     {
-        activeData.powerUps.RemoveAt((int)GetStat(PlayerStats.SELECTED_SLOT));
+        int sel = (int)GetStat(PlayerStats.SELECTED_SLOT);
+        
+        
+        if (activeData.powerUps[sel].type == PowerUpType.STAT_MODIFIER)
+        {
+            ModifyStats((PowerUp_Stat)activeData.powerUps[sel], true);         
+        }
+
+        
+        activeData.powerUps.RemoveAt(sel);
+        modChanged = impactChanged = shotsChanged = true;
     }
 
     public static List<GameObject> GetShotHitInitializers(out bool destroyOnImpact)
     {
-        List<GameObject> go = new List<GameObject>();
-        int destroy = 0;
-
-        foreach (PowerUp power in activeData.powerUps)
+        if (impactChanged)
         {
-            if (power.type == PowerUpType.SHOT_IMPACT_BEHAVIOUR)
-            {
-                PowerUp_BulletImpact bulletImp = (PowerUp_BulletImpact)power;
-                destroy += (bulletImp.destroyOnImpact ? 1 : -1);
-                go.Add(bulletImp.instantiateOnHit);
-            }
-        }
 
-        destroyOnImpact = destroy >= 0;
-        return go.Count == 0 ? null : go;
+            List<GameObject> go = new List<GameObject>();
+            int destroy = 0;
+
+            foreach (PowerUp power in activeData.powerUps)
+            {
+                if (power.type == PowerUpType.SHOT_IMPACT_BEHAVIOUR)
+                {
+                    PowerUp_BulletImpact bulletImp = (PowerUp_BulletImpact)power;
+                    destroy += (bulletImp.destroyOnImpact ? 1 : -1);
+                    go.Add(bulletImp.instantiateOnHit);
+                }
+            }
+
+            destroyCache =  destroy >= 0;
+            impactCache = go.Count == 0 ? null : go;
+            impactChanged = false;
+        }
+        destroyOnImpact = destroyCache;
+        return impactCache;
     }
 
     public static ShotModifiers GetShotModifiers()
     {
-        ShotModifiers mods = new ShotModifiers()
+        if (modChanged)
         {
-            rateMultiplier = 1,
-            speedMultiplier = 1,
-            sizeMultiplier = 1,
-            damageMultiplier = 1,
-        };
-
-        foreach (PowerUp power in activeData.powerUps)
-        {
-            if (power.type == PowerUpType.SHOT_MODIFIER)
+            ShotModifiers mods = new ShotModifiers()
             {
-                PowerUp_BulletModifier bulletMod = (PowerUp_BulletModifier)power;
-                mods.rateAdder += bulletMod.shotModifiers.rateAdder;
-                mods.sizeAdder += bulletMod.shotModifiers.sizeAdder;
-                mods.speedAdder += bulletMod.shotModifiers.speedAdder;
-                mods.damageAdder += bulletMod.shotModifiers.damageAdder;
-                
-                mods.rateMultiplier *= bulletMod.shotModifiers.rateMultiplier;
-                mods.sizeMultiplier *= bulletMod.shotModifiers.sizeMultiplier;
-                mods.speedMultiplier *= bulletMod.shotModifiers.speedMultiplier;
-                mods.damageMultiplier += bulletMod.shotModifiers.damageMultiplier;
-            }
-        }
+                rateMultiplier = 1,
+                speedMultiplier = 1,
+                sizeMultiplier = 1,
+                damageMultiplier = 1,
+            };
 
-        return mods;
+            foreach (PowerUp power in activeData.powerUps)
+            {
+                if (power.type == PowerUpType.SHOT_MODIFIER)
+                {
+                    PowerUp_BulletModifier bulletMod = (PowerUp_BulletModifier)power;
+                    mods.rateAdder += bulletMod.shotModifiers.rateAdder;
+                    mods.sizeAdder += bulletMod.shotModifiers.sizeAdder;
+                    mods.speedAdder += bulletMod.shotModifiers.speedAdder;
+                    mods.damageAdder += bulletMod.shotModifiers.damageAdder;
+
+                    mods.rateMultiplier *= bulletMod.shotModifiers.rateMultiplier;
+                    mods.sizeMultiplier *= bulletMod.shotModifiers.sizeMultiplier;
+                    mods.speedMultiplier *= bulletMod.shotModifiers.speedMultiplier;
+                    mods.damageMultiplier += bulletMod.shotModifiers.damageMultiplier;
+                    mods.destroyOnContact = mods.destroyOnContact && bulletMod.shotModifiers.destroyOnContact;
+                
+                }
+            }
+            modChanged = false;
+            modCache = mods;
+            return mods;
+        }
+        else
+        {
+            return modCache;
+        }
     }
 
     public static int AddPowerUp(PowerUp power)
     {
         activeData.powerUps.Add(power);
+        if (power.type == PowerUpType.STAT_MODIFIER)
+        {
+            ModifyStats((PowerUp_Stat)power, false);
+        }
+        modChanged = impactChanged = shotsChanged = true;
         return activeData.powerUps.Count - 1;
     }
 

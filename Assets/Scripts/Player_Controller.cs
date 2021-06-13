@@ -71,7 +71,7 @@ public class Player_Controller : Entity_Controller
             Stack<byte> delete = new Stack<byte>();
             for (byte i = 0; i < overlappedPowerups.Count; i++)
             {
-                if (SerializedData.PowerCount > 9)
+                if (SerializedData.PowerCount >= 9)
                     break;
 
                 gotoSize += .7f;

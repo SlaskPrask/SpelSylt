@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99503882b6f6215408a616d6be92ef97, type: 3}
+  m_Name: SpeedUp
+  m_EditorClassIdentifier: 
+  type: 2
+  power:
+    id: 0
+  sprite: {fileID: 21300000, guid: 4005f4c946aa7e149bb71a4cbb7051fe, type: 3}
+  references:
+    version: 1
+    00000000:
+      type: {class: PowerUp_Stat, ns: , asm: Assembly-CSharp}
+      data:
+        type: 2
+        maxHP: 0
+        heal: 0
+        size: 0
+        fireRate: 0
+        moveSpeed: 20
+        knockback: 0
+        acceleration: 0
+        decceleration: 0
+        knockbackResistance: 0
+        invincibilityTime: 0
+        damage: 0
