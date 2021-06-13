@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1103402713723294236}
   - component: {fileID: 1103402713723294227}
   - component: {fileID: 2707851128090028827}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: enemyBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,8 @@ MonoBehaviour:
   huntSpeed: 5
   minPatrol: 1
   maxPatrol: 6
-  playerTrigger: {fileID: 0}
+  playerTrigger: {fileID: 2510424918553949060}
+  contactDamage: 2
 --- !u!1 &1103402714928875416
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7515080869054680805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.384254, y: -1.4832784, z: 0.35}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1103402713723294236}
@@ -294,7 +295,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000011920929, y: -0.23231733}
+  m_Offset: {x: 0.0752573, y: -0.37029004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -305,5 +306,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.57961583, y: 0.35836148}
+  m_Size: {x: 1.4952526, y: 0.6343069}
   m_EdgeRadius: 0
