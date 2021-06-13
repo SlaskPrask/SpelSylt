@@ -46,6 +46,7 @@ public static class SerializedData
             baseShot = Resources.Load<PowerUp_Scriptable>("Base Shot").GetPowerup<PowerUp_ExtraShot>(),
             powerUps = new List<PowerUp>()
         };
+        shotsChanged = modChanged = impactChanged = true;
     }
 
 
