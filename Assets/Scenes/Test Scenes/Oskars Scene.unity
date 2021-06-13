@@ -21677,6 +21677,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2707851128090028827, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: maxTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707851128090028827, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: minTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707851128090028827, guid: f9cab9731b710a44993727209cb1f024, type: 3}
       propertyPath: huntSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -21692,6 +21700,26 @@ PrefabInstance:
       propertyPath: playerTrigger
       value: 
       objectReference: {fileID: 1295374573}
+    - target: {fileID: 2707851128090028827, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833807923555417115, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014492393}
+    - target: {fileID: 3833807923555417115, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014492393}
+    - target: {fileID: 3833807923555417115, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: onTriggerExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitedTriggerRange
+      objectReference: {fileID: 0}
+    - target: {fileID: 3833807923555417115, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnteredTriggerRange
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2510424918553949060, guid: f9cab9731b710a44993727209cb1f024, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f9cab9731b710a44993727209cb1f024, type: 3}
@@ -61073,7 +61101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3550039694614166469, guid: bc0ca9f79d81f454fb3b476d28a581b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3550039694614166469, guid: bc0ca9f79d81f454fb3b476d28a581b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61808,6 +61836,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2014492393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2707851128090028827, guid: f9cab9731b710a44993727209cb1f024, type: 3}
+  m_PrefabInstance: {fileID: 833504003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31658069c2984a409b07afba1b001cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2026775541
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class PowerUp_ExtraShot : PowerUp
         int layer;
         float baseDmg;
         float dist;
+        float distTime;
         if (shooter.gameObject.layer == 6)
         {
             mods = SerializedData.GetShotModifiers();
@@ -33,9 +34,18 @@ public class PowerUp_ExtraShot : PowerUp
             layer = 7;
             baseDmg = SerializedData.GetStat(PlayerStats.DAMAGE);
             dist = SerializedData.GetStat(PlayerStats.SIZE) * .15f;
+            distTime = 2;
         }
         else
         {
+            if (((Enemy_Controller)shooter).type == 0) 
+            {
+                distTime = 2;
+            }
+            else
+            {
+                distTime = 10;
+            }
             layer = 9;
             initOnHit = null;
             destroy = true;
@@ -73,7 +83,7 @@ public class PowerUp_ExtraShot : PowerUp
                     destroy = false;
                 }
                         
-                bullet.Initialize(shotDir * speed, destroy, initOnHit, color, layer, dmg);
+                bullet.Initialize(shotDir * speed, destroy, initOnHit, color, layer, dmg, distTime);
             }
         }
         if (!ignoreFireRate)

@@ -41,12 +41,13 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
     protected override void AwakeInit()
     {
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
-        currentState = EnemyState.PATROLLING;
+        currentState = EnemyState.IDLE;
         anim = GetComponent<Animator>();
         knockbackTimer = 0;
         home = transform.position;
         playerTrigger.transform.parent = null;
         pattern = AttackPattern.HUNT;
+        type = 1;
     }
 
     void Update()
@@ -140,9 +141,9 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
 
     public void EnteredTriggerRange(Collider2D col)
     {
-        if (currentState == EnemyState.PATROLLING)
+        if (currentState == EnemyState.IDLE)
         {
-            RuntimeManager.PlayOneShotAttached("Event:/SFX/SpookyActivate", gameObject);
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/BossActivate", gameObject);
             currentState = EnemyState.HUNTING;
         }
         target = col.transform;
@@ -153,7 +154,7 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
         if (currentState != EnemyState.DEAD)
         {
             body.velocity = Vector2.zero;
-            currentState = EnemyState.PATROLLING;
+            currentState = EnemyState.IDLE;
         }
     }
 
