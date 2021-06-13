@@ -252,6 +252,11 @@ public class Player_Controller : Entity_Controller
         onNumberInput.Invoke(8);
     }
 
+    public void OnPause(InputValue val)
+    {
+        GameManager.PauseGame();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.layer)

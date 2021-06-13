@@ -5,6 +5,7 @@ using UnityEngine;
 public static class SerializedData
 {
     private static PlayerData activeData;
+    public static bool gamePause;
 
     public static int PowerCount { get => activeData.powerUps.Count; }
 
