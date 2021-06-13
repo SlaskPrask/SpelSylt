@@ -48,7 +48,8 @@ public class PowerUp_ExtraShot : PowerUp
                 rateAdder = 0,
                 rateMultiplier = 0,
                 damageAdder = 0,
-                damageMultiplier = 1
+                damageMultiplier = 1,
+                destroyOnContact = true,
             };
             baseDmg = 0;
             dist = ((Enemy_Controller)shooter).shotStart;
@@ -67,7 +68,7 @@ public class PowerUp_ExtraShot : PowerUp
                 Bullet bullet = UnityEngine.Object.Instantiate(GameManager.instance.bulletPrefab, (Vector2)shooter.transform.position + shotDir * dist, Quaternion.identity).GetComponent<Bullet>();
                 bullet.transform.localScale = Vector3.one * size;
 
-                bullet.Initialize(shotDir * speed, destroy, initOnHit, color, layer, dmg);
+                bullet.Initialize(shotDir * speed, (destroy && mods.destroyOnContact), initOnHit, color, layer, dmg);
             }
         }
         if (!ignoreFireRate)

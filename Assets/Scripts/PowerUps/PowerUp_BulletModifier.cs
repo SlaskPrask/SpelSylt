@@ -9,14 +9,16 @@ public class PowerUp_BulletModifier : PowerUp
     {
         sizeAdder = 0f,
         sizeMultiplier = 1f,
-        
+
         speedAdder = 0f,
         speedMultiplier = 1f,
-        
+
         rateAdder = 0f,
         rateMultiplier = 1f,
 
         damageAdder = 0f,
         damageMultiplier = 1f,
+
+        destroyOnContact = true,
     };
 }
