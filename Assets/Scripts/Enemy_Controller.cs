@@ -8,6 +8,7 @@ public class Enemy_Controller : Entity_Controller
     [SerializeField] protected float timeBetweenAttacks = 2f;
     [SerializeField] protected float health = 5;
     [SerializeField] protected float knockback = 10;
+    public float shotStart = .25f;
     public List<PowerUp_Scriptable> shots = new List<PowerUp_Scriptable>();
     public DropTable drops;
     

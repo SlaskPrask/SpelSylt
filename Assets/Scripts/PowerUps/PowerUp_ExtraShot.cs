@@ -25,12 +25,14 @@ public class PowerUp_ExtraShot : PowerUp
         bool destroy;
         int layer;
         float baseDmg;
+        float dist;
         if (shooter.gameObject.layer == 6)
         {
             mods = SerializedData.GetShotModifiers();
             initOnHit = SerializedData.GetShotHitInitializers(out destroy);
             layer = 7;
             baseDmg = SerializedData.GetStat(PlayerStats.DAMAGE);
+            dist = SerializedData.GetStat(PlayerStats.SIZE) * .35f;
         }
         else
         {
@@ -49,6 +51,7 @@ public class PowerUp_ExtraShot : PowerUp
                 damageMultiplier = 1
             };
             baseDmg = 0;
+            dist = ((Enemy_Controller)shooter).shotStart;
         }
 
         for (int i = 1; i <= 128; i += i)
@@ -61,7 +64,7 @@ public class PowerUp_ExtraShot : PowerUp
 
                 float dir = Mathf.Log(i, 2);
                 Vector2 shotDir = Quaternion.AngleAxis(45 * dir, Vector3.forward) * shotDirection;
-                Bullet bullet = UnityEngine.Object.Instantiate(GameManager.instance.bulletPrefab, (Vector2)shooter.transform.position + shotDir * (SerializedData.GetStat(PlayerStats.SIZE) * .35f), Quaternion.identity).GetComponent<Bullet>();
+                Bullet bullet = UnityEngine.Object.Instantiate(GameManager.instance.bulletPrefab, (Vector2)shooter.transform.position + shotDir * dist, Quaternion.identity).GetComponent<Bullet>();
                 bullet.transform.localScale = Vector3.one * size;
 
                 bullet.Initialize(shotDir * speed, destroy, initOnHit, color, layer, dmg);
