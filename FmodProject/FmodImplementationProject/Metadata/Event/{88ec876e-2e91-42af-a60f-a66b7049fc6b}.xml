@@ -5,7 +5,7 @@
 			<value>CyclePowerup</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{d0f3b4b0-000a-4eab-b609-1d7c62a75837}</destination>
@@ -148,7 +148,6 @@
 	<object class="MixerBusEffectChain" id="{a74b4f44-2304-4f4f-9432-702f7e4699cc}">
 		<relationship name="effects">
 			<destination>{1ab967dd-b7c4-468e-b648-08d8c092e705}</destination>
-			<destination>{03b8520e-8cb2-4e53-b9a4-5472d72f9047}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a606bcee-2d48-4627-8343-fe0aa47fd9a9}" />
@@ -166,7 +165,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{d97b8527-6a3e-49e5-baba-29cd6bd2a819}" />
 	<object class="MixerBusFader" id="{1ab967dd-b7c4-468e-b648-08d8c092e705}" />
-	<object class="SpatialiserEffect" id="{03b8520e-8cb2-4e53-b9a4-5472d72f9047}" />
 	<object class="MixerBusFader" id="{6fe30bb8-37f3-4ee0-96ce-b6a685a558fc}" />
 	<object class="MixerBusFader" id="{a9a613c0-0305-42c5-b57a-ac71bddcfab0}" />
 </objects>

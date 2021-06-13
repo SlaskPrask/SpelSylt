@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Main Menu.unity
     guid: 723423c8a1bb5a84e8eaa866748a7ddd
   - enabled: 1
+    path: Assets/Scenes/Test Scenes/Oskars Scene.unity
+    guid: 338d4497a4fbe88458440691c4ceb99a
+  - enabled: 1
     path: Assets/Scenes/Game Scenes/StartLevel.unity
     guid: de258c8e1037fb94d94c5031e49c13fc
   m_configObjects: {}

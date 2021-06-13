@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour, IDamageSource
 
         if (destroyOnImpact)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/HitEnemy", gameObject);
             Destroy(gameObject);
         }
     }
