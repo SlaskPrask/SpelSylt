@@ -83,14 +83,13 @@ public class PowerUpBar : MonoBehaviour
 
     private void SwitchPowerSlot(int goTo)
     {
-        if (!powerSlots[goTo].hasItem)
+        if (!powerSlots[goTo].hasItem || goTo == (int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT))
             return;
-
+        
         powerSlots[(int)SerializedData.GetStat(PlayerStats.SELECTED_SLOT)].SetFrame(stdColor, stdFrame);
         powerSlots[goTo].SetFrame(selectionColor, selectionFrame);
         SerializedData.UpdateStat(PlayerStats.SELECTED_SLOT, goTo);
-        //No work
-        RuntimeManager.PlayOneShot("Editor:/SFX/CyclePowerupReal");
+        RuntimeManager.PlayOneShot("event:/SfX/CyclePowerupReal");
     }
 
     private void NextSlot()
@@ -107,5 +106,6 @@ public class PowerUpBar : MonoBehaviour
         powerSlots[current].SetFrame(stdColor, stdFrame);
         powerSlots[next].SetFrame(selectionColor, selectionFrame);
         SerializedData.UpdateStat(PlayerStats.SELECTED_SLOT, next);
+        RuntimeManager.PlayOneShot("event:/SfX/CyclePowerupReal");
     }
 }
