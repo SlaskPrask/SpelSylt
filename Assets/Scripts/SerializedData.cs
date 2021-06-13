@@ -115,6 +115,17 @@ public static class SerializedData
         modChanged = impactChanged = shotsChanged = true;
     }
 
+    public static void RemovePowerUp(int sel)
+    {
+        if (activeData.powerUps[sel].type == PowerUpType.STAT_MODIFIER)
+        {
+            ModifyStats((PowerUp_Stat)activeData.powerUps[sel], true);
+        }
+
+        activeData.powerUps.RemoveAt(sel);
+        modChanged = impactChanged = shotsChanged = true;
+    }
+
     public static List<GameObject> GetShotHitInitializers(out bool destroyOnImpact)
     {
         if (impactChanged)
@@ -141,20 +152,22 @@ public static class SerializedData
         return impactCache;
     }
 
-    public static bool HasKey(KeyItemType type)
+    public static bool HasKey(KeyItemType type, out int index)
     {
-        foreach (PowerUp power in activeData.powerUps)
+        index = -1;
+        for (int i = 0; i < activeData.powerUps.Count; i++)
         {
+            PowerUp power = activeData.powerUps[i];
             if (power.type == PowerUpType.KEY_ITEM)
             {
                 PowerUp_KeyItem item = (PowerUp_KeyItem)power;
                 if (type == item.itemType)
                 {
+                    index = i;
                     return true;
                 }
-
             }
-        }
+        } 
         return false;
     }
 
