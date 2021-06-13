@@ -5,18 +5,16 @@ using FMODUnity;
 
 public class Enemy_Boss : Enemy_Controller, IDamageSource
 {
-    [SerializeField] private float patrolRadius = 10;
     private Vector2 home;
     private Vector2 targetPoint;
     private Transform target;
     private float knockbackTime = .1f;
     private float knockbackTimer;
-    [SerializeField] private float patrolSpeed = 3;
     [SerializeField] private float huntSpeed = 5;
     private float targetTime = 0f;
     [SerializeField] private float minPatrol = 1f;
     [SerializeField] private float maxPatrol = 6f;
-    [SerializeField] private CircleCollider2D playerTrigger;
+    [SerializeField] private BoxCollider2D playerTrigger;
     [SerializeField] private float contactDamage = 2f;
 
     protected override void AwakeInit()
@@ -26,9 +24,7 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
         anim = GetComponent<Animator>();
         knockbackTimer = 0;
         home = transform.position;
-        playerTrigger.radius = patrolRadius;
         playerTrigger.transform.parent = null;
-        GetNewTargetPoint();
     }
 
     void Update()
@@ -61,20 +57,6 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
     private void Patrolling()
     {
 
-        targetTime -= Time.deltaTime;
-        if (targetTime <= 0f ||
-            Vector2.Distance(targetPoint, transform.position) < .25f ||
-            Vector2.Distance(home, transform.position) > patrolRadius)
-        {
-            GetNewTargetPoint();
-        }
-    }
-
-    private void GetNewTargetPoint()
-    {
-        targetPoint = home + Random.insideUnitCircle * patrolRadius * .5f;
-        targetTime = Random.Range(minPatrol, maxPatrol);
-        body.velocity = (targetPoint - (Vector2)transform.position).normalized * patrolSpeed;
     }
 
     public void EnteredTriggerRange(Collider2D col)
@@ -92,18 +74,8 @@ public class Enemy_Boss : Enemy_Controller, IDamageSource
         if (currentState != EnemyState.DEAD)
         {
             body.velocity = Vector2.zero;
-            GetNewTargetPoint();
             currentState = EnemyState.PATROLLING;
         }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (!Application.isPlaying)
-        {
-            home = transform.position;
-        }
-        Gizmos.DrawWireSphere(home, patrolRadius);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

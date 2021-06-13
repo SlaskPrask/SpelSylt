@@ -182,7 +182,7 @@ public class Player_Controller : Entity_Controller
         if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1)
         {
             //Error noise
-            RuntimeManager.PlayOneShotAttached("Event:/SFX/NoPoop", gameObject);
+            RuntimeManager.PlayOneShot("Event:/SFX/NoPoop");
             return;
         }
         else

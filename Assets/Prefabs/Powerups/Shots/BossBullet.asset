@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99503882b6f6215408a616d6be92ef97, type: 3}
-  m_Name: PinkBullet
+  m_Name: BossBullet
   m_EditorClassIdentifier: 
   type: 0
   power:
@@ -22,10 +22,10 @@ MonoBehaviour:
       type: {class: PowerUp_ExtraShot, ns: , asm: Assembly-CSharp}
       data:
         type: 0
-        baseFireRate: 2
-        baseFireSpeed: 4
-        baseSize: 1
-        baseDamageAdder: 2
+        baseFireRate: 5
+        baseFireSpeed: 2
+        baseSize: 2
+        baseDamageAdder: 0
         baseDamageMultiplier: 1
-        shotDirections: 1
-        color: {r: 0.6862745, g: 0, b: 0.38431376, a: 1}
+        shotDirections: -1
+        color: {r: 0.31764707, g: 0.5176471, b: 0.5411765, a: 1}

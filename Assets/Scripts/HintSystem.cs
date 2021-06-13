@@ -27,7 +27,7 @@ public class HintSystem : MonoBehaviour
                     textBox.SetText("W/A/S/D TO MOVE\nARROW KEYS TO SHOOT");
                     break;
                 case 1:
-                    textBox.SetText("SPACE TO\nABSORB");
+                    textBox.SetText("SPACE TO\nABSORB BODIES");
                     break;
                 case 2:
                     textBox.SetText("TAB TO CYCLE POWERUPS\nQ TO DIGEST");
