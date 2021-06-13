@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using FMODUnity;
 
 public class Player_Controller : Entity_Controller
 {
@@ -76,6 +77,7 @@ public class Player_Controller : Entity_Controller
                 gotoSize += .7f;
                 PowerUp_Object obj = overlappedPowerups[i].GetComponent<PowerUp_Object>();
                 AbsorbPower(obj);
+                RuntimeManager.PlayOneShotAttached("event:/SFX/Absorb", gameObject);
                 onAbsorbedItem.Invoke(obj);
                 Destroy(overlappedPowerups[i]);
                 delete.Push(i);
@@ -180,6 +182,7 @@ public class Player_Controller : Entity_Controller
         if (SerializedData.GetStat(PlayerStats.SELECTED_SLOT) == powers - 1)
         {
             //Error noise
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/NoPoop", gameObject);
             return;
         }
         else
@@ -194,6 +197,7 @@ public class Player_Controller : Entity_Controller
                 StopCoroutine(sizeRoutine);
             }
             sizeRoutine = StartCoroutine(UpdateSize());
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/Digest", gameObject);
         }
     }
 
@@ -265,9 +269,39 @@ public class Player_Controller : Entity_Controller
                 if (invincibility > 0f)
                     return;
 
-                Vector2 knockDir = transform.position - collision.transform.position;
+                if (collision.TryGetComponent<IDamageSource>(out IDamageSource dmgSource))
+                {
+                    Vector2 knockDir = transform.position - collision.transform.position;
+                    Damage(dmgSource.GetDamage(), 10, knockDir.normalized);
+                }
+                else
+                    return;
 
-                Damage(.5f, 10, knockDir.normalized);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case 8: //power up
+                break;
+            case 9: //Enemy Bullet
+            case 10: //Enemy
+            case 11: //Neutral Damage
+                if (invincibility > 0f)
+                    return;
+
+                if (collision.TryGetComponent<IDamageSource>(out IDamageSource dmgSource))
+                {
+                    Vector2 knockDir = transform.position - collision.transform.position;
+                    Damage(dmgSource.GetDamage(), 10, knockDir.normalized);
+                }
+                else
+                    return;
                 break;
             default:
                 break;
@@ -285,12 +319,14 @@ public class Player_Controller : Entity_Controller
         SerializedData.UpdateStat(PlayerStats.CURRENT_HP, hp);
         onHealthChange.Invoke(hp, maxHP);
 
-        if (hp <= 0f)
+        if (hp <= 0f && !dead)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/BlobDeath2", gameObject);
             dead = true;
         }
         else if (hp < prevHp)
         {
+            RuntimeManager.PlayOneShotAttached("Event:/SFX/GoopHurt", gameObject);
             body.AddForce(knockDir * Mathf.Max(knockback - SerializedData.GetStat(PlayerStats.KNOCKBACK_RESISTANCE), 0f), ForceMode2D.Impulse);
             StartCoroutine(Invincibility());
         }
