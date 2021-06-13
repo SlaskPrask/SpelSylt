@@ -274,6 +274,27 @@ public class Player_Controller : Entity_Controller
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case 8: //power up
+                break;
+            case 9: //Enemy Bullet
+            case 10: //Enemy
+            case 11: //Neutral Damage
+                if (invincibility > 0f)
+                    return;
+
+                Vector2 knockDir = transform.position - collision.transform.position;
+
+                Damage(.5f, 10, knockDir.normalized);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void Damage(float value, float knockback, Vector2 knockDir)
     {
 

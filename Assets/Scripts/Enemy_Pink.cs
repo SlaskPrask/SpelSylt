@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Enemy_Pink : Enemy_Controller
 {
-
     private float attackTimer;
     private Transform target;
     private float knockbackTime = .1f;
     private float knockbackTimer;
+
     protected override void AwakeInit()
     {
         currentState = EnemyState.IDLE;

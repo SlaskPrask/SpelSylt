@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     public GameObject bulletPrefab;
     public GameObject powerPrefab;
+    public GameObject bulletBreakPrefab;
     private void Awake()
     {
         if (instance == null)

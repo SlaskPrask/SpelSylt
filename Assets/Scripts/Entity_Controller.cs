@@ -12,6 +12,7 @@ public abstract class Entity_Controller : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        
         renderer = GetComponentInChildren<SpriteRenderer>(true);
         AwakeInit();
     }
