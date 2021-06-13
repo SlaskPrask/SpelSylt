@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class Enemy_Green : Enemy_Controller, IDamageSource
+public class Enemy_Boss : Enemy_Controller, IDamageSource
 {
     [SerializeField] private float patrolRadius = 10;
     private Vector2 home;
@@ -17,7 +17,7 @@ public class Enemy_Green : Enemy_Controller, IDamageSource
     [SerializeField] private float minPatrol = 1f;
     [SerializeField] private float maxPatrol = 6f;
     [SerializeField] private CircleCollider2D playerTrigger;
-    [SerializeField] private float contactDamage = 1f;
+    [SerializeField] private float contactDamage = 2f;
 
     protected override void AwakeInit()
     {
@@ -50,8 +50,6 @@ public class Enemy_Green : Enemy_Controller, IDamageSource
         }
 
         Vector2 vel = body.velocity;
-        anim.SetFloat("Horizontal", vel.x);
-        anim.SetFloat("Vertical", vel.y);
     }
 
     private void HuntTarget()
@@ -64,7 +62,7 @@ public class Enemy_Green : Enemy_Controller, IDamageSource
     {
 
         targetTime -= Time.deltaTime;
-        if (targetTime <= 0f || 
+        if (targetTime <= 0f ||
             Vector2.Distance(targetPoint, transform.position) < .25f ||
             Vector2.Distance(home, transform.position) > patrolRadius)
         {
@@ -105,7 +103,7 @@ public class Enemy_Green : Enemy_Controller, IDamageSource
         {
             home = transform.position;
         }
-            Gizmos.DrawWireSphere(home, patrolRadius);
+        Gizmos.DrawWireSphere(home, patrolRadius);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
