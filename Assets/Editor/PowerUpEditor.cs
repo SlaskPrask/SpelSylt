@@ -31,6 +31,7 @@ public class PowerUpEditor : Editor
                 power.managedReferenceValue = new PowerUp_BulletImpact();
                 break;
             case PowerUpType.STAT_MODIFIER:
+                power.managedReferenceValue = new PowerUp_Stat();
                 break;
             case PowerUpType.ELEMENTAL_TYPING:
                 break;

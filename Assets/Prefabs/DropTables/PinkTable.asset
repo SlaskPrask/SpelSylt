@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 156f0d8a851c9ed4d90ff620e0df5a31, type: 3}
-  m_Name: TestTable
+  m_Name: PinkTable
   m_EditorClassIdentifier: 
-  totalDropChance: 5
+  totalDropChance: 12
   dropTable:
-  - powerUp: {fileID: 0}
-    dropChance: 1
+  - powerUp: {fileID: 11400000, guid: d7533cfaef77da44486d820616254522, type: 2}
+    dropChance: 10
   - powerUp: {fileID: 11400000, guid: 58000d1fecbfd3147a455faf594ed9a7, type: 2}
-    dropChance: 2
+    dropChance: 1
   - powerUp: {fileID: 11400000, guid: e66347ba25250a64f97c077aed222250, type: 2}
-    dropChance: 2
+    dropChance: 1

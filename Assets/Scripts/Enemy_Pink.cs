@@ -68,7 +68,7 @@ public class Enemy_Pink : Enemy_Controller
     private void Miander()
     {
         if (knockbackTimer <= 0f)
-            body.velocity = Random.insideUnitCircle;
+            body.velocity = Random.insideUnitCircle*2;
     }
 
     public void EnteredTriggerRange(Collider2D col)
@@ -82,9 +82,12 @@ public class Enemy_Pink : Enemy_Controller
 
     public void ExitedTriggerRange(Collider2D col)
     {
-        currentState = EnemyState.IDLE;
-        attackTimer = timeBetweenAttacks;
-        body.velocity = Vector2.zero;
+        if (currentState != EnemyState.DEAD)
+        {
+            body.velocity = Vector2.zero;
+            attackTimer = timeBetweenAttacks;
+            currentState = EnemyState.IDLE;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -115,8 +118,16 @@ public class Enemy_Pink : Enemy_Controller
 
     private IEnumerator Die()
     {
+        anim.SetTrigger("Death");
+        Destroy(GetComponent<CircleCollider2D>());
+        renderer.sortingOrder = 8;
+        body.isKinematic = true;
+        while (!anim.GetCurrentAnimatorStateInfo(0).IsName("Finished"))
+        { 
+            yield return null;
+        }
         drops.CalculateDrop().Instantiate(transform.position);
-        yield return null;
+        Destroy(gameObject);
     }
 
 }

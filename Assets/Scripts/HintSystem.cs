@@ -5,23 +5,20 @@ using TMPro;
 
 public class HintSystem : MonoBehaviour
 {
-    public GameObject hint;
     public GameObject player;
     public Collider2D collider;
     public TextMeshProUGUI textBox;
-    private RectTransform transform;
     public byte textCount = 0;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        transform = gameObject.GetComponent<RectTransform>();
-        transform.anchoredPosition = new Vector2(hint.transform.position.x, hint.transform.position.y);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //transform.anchoredPosition = new Vector2(transform.anchoredPosition.x, transform.anchoredPosition.y);
         if (collider.IsTouching(player.GetComponent<Collider2D>()))
         {
             switch (textCount)
