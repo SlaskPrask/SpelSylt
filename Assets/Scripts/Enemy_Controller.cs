@@ -11,6 +11,7 @@ public class Enemy_Controller : Entity_Controller
     public float shotStart = .25f;
     public List<PowerUp_Scriptable> shots = new List<PowerUp_Scriptable>();
     public DropTable drops;
+    public int type = 0;
     
     protected EnemyState currentState;
     protected Animator anim;

@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour, IDamageSource
     float audioCooldown = .1f;
     float lastTimePlayed = 0f;
 
-    public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer, float dmg)
+    public void Initialize(Vector2 velocity, bool destOnImpact, List<GameObject> initOnHit, Color color, int layer, float dmg, float destructionTime)
     {
         damage = dmg;
         gameObject.layer = layer;
@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour, IDamageSource
         body.velocity = velocity;
         this.initOnHit = initOnHit;
         RuntimeManager.PlayOneShotAttached("Event:/SFX/Shotsound", gameObject);
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, destructionTime);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
